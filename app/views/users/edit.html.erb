@@ -1,0 +1,26 @@
+<body>
+<%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"%>
+
+  <div class="user-main-content">
+    <div class="user-edit-top">
+      <div class="user-edit-title"><span>アカウント情報</span></div>
+      <%=form_for(@user) do |f| %>
+          <div class="user-edit-image">
+            <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
+             <label for="files">
+             	<div class="btn btn-image-edit">プロフィール写真選択</div>
+                <%=f.attachment_field :profile_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
+             </label>
+          </div>
+          <div class="user-profile-name">
+            <%= @user.name %>
+          </div>
+          <div class="user-profile-residence">
+            <%= @user.residence %>
+          </div>
+          <div class="user-profile-edit">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>

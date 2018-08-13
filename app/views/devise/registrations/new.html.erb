@@ -1,0 +1,81 @@
+
+<body class="sign-in-body">
+  <div class="containar">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="sign-up-content">
+          <div class="sign-up-title">
+            <div class ="sign-up-title"><strong>IC Work</strong>  へようこそ！</div>
+          </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+          <div class="col-xs-4 col-xs-offset-1">
+              <label for="files">
+                <div class="sign-up-plofile">
+              <div class="image">
+                <div class="image-text">+</div>
+              </div>
+                <!-- <input id="files" data-reference="11645722f720d253c1674c15a440f369" include_hidden="false" type="file" name="user[profile_image]"> -->
+                <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", id: "files", class: "user-edit-form" %>
+              </label>
+              <p class="choice_text">&nbsp;&nbsp;プロフィール写真選択</p>
+            </div>
+          </div>
+          <div class="col-xs-7">
+              <div class="field">
+                <%= f.label :ユーザー名 %><br />
+                <%= f.text_field :name, autofocus: true, class: "sign-up-name" %>
+              </div>
+              <div class="field">
+                <%= f.label :メールアドレス %><br />
+                <%= f.email_field :email, class: "sign-up-mail" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :あなたはどちらですか？ %><br />
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn active btn-name">
+                    <input type="radio" value="1" name="user[kind_id]" id="user_kind_id_1" checked>&nbsp;&nbsp;&nbsp;&nbsp;働きたい&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
+                  <label class="btn active btn-kind">
+                    <input type="radio" value="2" name="user[kind_id]" id="user_kind_id_2" checked>仕事を依頼したい
+                  </label>
+              </div>
+
+              <div class="field">
+                <%= f.label :居住地を選択してください %><br />
+                <%= f.select :residence, User.residences.keys, {prompt: '選択してください'}, class: 'form-control btn btn-default' %>
+              </div>
+
+              <div class="field">
+                <%= f.label :パスワード %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>文字以上)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" , class: "sign-up-mail" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :パスワード確認 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "sign-up-mail" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "新規登録完了", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+
+
+
