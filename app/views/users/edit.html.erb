@@ -1,26 +1,64 @@
 <body>
 <%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"%>
 
-  <div class="user-main-content">
-    <div class="user-edit-top">
-      <div class="user-edit-title"><span>アカウント情報</span></div>
-      <%=form_for(@user) do |f| %>
-          <div class="user-edit-image">
-            <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
-             <label for="files">
-             	<div class="btn btn-image-edit">プロフィール写真選択</div>
-                <%=f.attachment_field :profile_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
-             </label>
-          </div>
-          <div class="user-profile-name">
-            <%= @user.name %>
-          </div>
-          <div class="user-profile-residence">
-            <%= @user.residence %>
-          </div>
-          <div class="user-profile-edit">
-        </div>
-      <% end %>
-    </div>
-  </div>
+	<div class="user-main-content">
+		<%=form_for(@user) do |f| %>
+			<div class="user-edit-top">
+				<div class="user-edit-title"><span>アカウント情報</span></div>
+					<div class="user-edit-image">
+						<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
+						<label for="files">
+							<div class="btn btn-image-edit">プロフィール写真選択</div>
+							<%=f.attachment_field :profile_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
+						</label>
+					</div>
+					<div class="many-fields">
+						<div class="field">
+							<%= f.label :ユーザー名 %><br />
+							<%= f.text_field :name, autofocus: true, class: "user-edit-name" %>
+						</div>
+						<div class="field">
+							<%= f.label :メールアドレス %><br />
+							<%= f.email_field :email, class: "user-edit-email" %>
+						</div>
+						<div class="field">
+							<%= f.label :居住地 %><br />
+							<%= f.select :residence, User.residences.keys, {prompt: '選択してください'}, class: 'form-control btn btn-edit-residence' %>
+						</div>
+					</div>
+					<div class="user-profile-residence">
+						<%= @user.residence %>
+					</div>
+					<div class="user-profile-edit">
+				</div>
+			</div>
+			<div class="user-pr clearfix">
+				<div class="user-pr-title">
+					<div class="pr-description-title">
+						自己PR
+					</div>
+					<br>
+					<p class="pr-description-text">これまでの経験や得意分野を明確にし、セールスポイントとして伝えましょう。</p>
+				</div>
+				<div class="user-pr-text">
+					<%= f.text_area :pr, rows:'11', class: "form-control pr" %>
+				</div>
+			</div>
+			<div class="user-pr clearfix">
+				<div class="user-pr-title">
+					<div class="pr-description-title">
+						実績・経験
+					</div>
+					<br>
+					<p class="pr-description-text">これまでの職場での業務内容や、果たした役割などを明確に記入しましょう。</p>
+				</div>
+				<div class="user-pr-text">
+					<%= f.text_area :experience, rows:'11', class: "form-control pr ",placeholder: "" %>
+				</div>
+			</div>
+			<div class="user-profile-complete">
+                <%= f.submit "新規登録完了", class: "btn btn-complete" %>
+              </div>
+		<% end %>
+	</div>
 </body>

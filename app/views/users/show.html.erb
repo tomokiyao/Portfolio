@@ -16,5 +16,29 @@
         <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
       </div>
     </div>
+    <div class="user-profile-pr">
+      <div class="profile-pr">自己PR</div>
+      <% if @user.pr == nil || "" %>
+        <div class="profile-pr-text">
+          <div class="nil-profile-pr-text">自己PRが設定されていません</div>
+        </div>
+      <% else %>
+      <div class="exit-profile-pr-text">
+      <div class="exit-profile-pr-text"><%= @user.pr %></div>
+      </div>
+      <% end %>
+    </div>
+      <div class="user-profile-pr">
+      <div class="profile-pr">実績・経験</div>
+      <% if @user.experience == nil || "" %>
+        <div class="profile-pr-text">
+          <div class="nil-profile-pr-text">実績・経験が設定されていません</div>
+        </div>
+      <% else %>
+      <div class="exit-profile-pr-text">
+      <div class="exit-profile-pr-text"><%= @user.experience %></div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </body>
