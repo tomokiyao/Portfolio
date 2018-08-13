@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ * {
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.sign-in-body {
+	background-image: url(photo-15.jpeg);
+	background-size: cover;
+}
+.sign-in-title {
+	font-family: Verdana;
+	color: #555555;
+	font-size: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.sign-in-content {
+	background-color: #EEEEEE;
+	width: 22%;
+	border-radius: 20px;
+	padding: 35px;
+	margin-top: 120px;
+	margin-left: 180px;
+}
+.field {
+	margin-top: 20px;
+}
+.sign-up-mail {
+	width: 320px;
+	border-radius: 10px;
+	border: 0px solid gray;
+	line-height: 2em;
+
+}
+.sign-up-name {
+	width: 150px;
+	border-radius: 10px;
+	border: 0px solid gray;
+	line-height: 2em;
+
+}
+.e-mail {
+	width: 250px;
+	border-radius: 10px;
+	border: 0px solid gray;
+	line-height: 2em;
+}
+.btn-primary {
+	background-color: #00abb3;
+	color: white;
+	width: 250px;
+	border-radius: 30px;
+	margin-top: 20px;
+	border: 1px solid #00abb3;
+}
+
+.btn-sign-up {
+	background-color: #cccccc;
+	color: #222222;
+	width: 250px;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #cccccc;
+	font-weight: bold;
+}
+.btn-sign-up:hover {
+	background-color: #aaaaaa;
+	border: 1px solid #aaaaaa;
+}
+.col-xs-6{
+	background-color: #EEEEEE;
+	margin-top: 50px;
+
+	border-radius: 20px;
+	padding: 35px;
+}
+.sign-up-title {
+	width: 100%;
+	line-height: 2em;
+	text-align: center;
+}
+.sign-up-title {
+	font-family: Verdana;
+	color: #555555;
+	font-size: 40px;
+}
+.sign-up-plofile {
+	height: 300px;
+}
+.image {
+	margin-top: 20px;
+	background-color: #cccccc;
+	border-radius: 75px;
+	width: 150px;
+	height: 150px;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+.image span {
+	margin-top: 75px;
+}
+.btn-name {
+	background-color: #66CC99;
+	border: 1px solid #66CC99;
+	color: #fff;
+}
+.btn-kind {
+	background-color: #66CCCC;
+	border: 1px solid #66CCCC;
+	color: #fff;
+}
+.btn-default {
+	background-color: #cccccc;
+	font-weight: bold;
+}
+.image-text {
+	font-size: 60px;
+	font-weight: bold;
+	position: absolute;
+	left: calc(50% - 48px);
+	top: calc(50% - 45px);
+	width: 100px;
+	height: 100px;
+}
+.choice_text {
+	font-weight: bold;
+	padding-top: 15px;
+}
+#files {
+	display: none;
+}
+body {
+	background-color: #F2F6F7;
+}

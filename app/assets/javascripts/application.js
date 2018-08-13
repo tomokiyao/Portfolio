@@ -13,4 +13,47 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+var b="a";
+var a="a";
+$('.btn-name').hover(
+  function() {
+    $('.btn-name').css('background-color', '#00CC66');
+    $('.btn-name').css('color', '#fff');
+    $(this).click(function() {
+      a = "b";
+      $('.btn-kind').css('background-color', '#66CCCC');
+      // a = "a"
+    })
+  },
+  function() {
+    if (a == "a") {
+      $('.btn-name').css('background-color', '#66CC99');
+    }
+  }
+)
+
+$('.btn-kind').hover(
+  function() {
+  	b="a";
+    $('.btn-kind').css('background-color', '#00CCFF');
+    $('.btn-kind').css('color', '#fff');
+    $(this).click(function() {
+      b = "b";
+      a="a";
+      $('.btn-name').css('background-color', '#66CC99');
+
+    })
+  },
+  function() {
+    if (b == "a") {
+      $('.btn-kind').css('background-color', '#66CCCC');
+    }
+  }
+)
+})
+
