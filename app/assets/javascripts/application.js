@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
@@ -55,5 +54,12 @@ $('.btn-kind').hover(
     }
   }
 )
+$('.skill').click(function() {
+	if ($(this).parent().hasClass('btn-click')) {
+		$(this).parent().removeClass('btn-click');
+	} else {
+		$(this).parent().addClass('btn-click');
+	}
+})
 })
 

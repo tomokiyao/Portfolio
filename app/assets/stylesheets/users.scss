@@ -4,7 +4,7 @@
 .user-profile-top {
 	width: 960px;
 	height: 300px;
-	background-color: #708090;
+	background:  linear-gradient(135deg, rgba(72, 85, 99, 0.9), rgba(41, 50, 60, 0.9));;
 	margin: 0 auto;
 	padding: 64px 32px 40px 32px;
 }
@@ -168,4 +168,75 @@
 	border-radius: 30px;
 	margin-top: 20px;
 	border: 1px solid #00abb3;
+}
+.user-pr-skill-1 {
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.user-pr-skill-2 {
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.user-pr-skill-3 {
+	width: 25%;
+	text-align: center;
+	float: left;
+}
+.user-pr-skill-4 {
+	width: 25%;
+	text-align: center;
+	float: left;
+}
+.btn-skill {
+	width: 115px;
+	margin-top: 15px;
+	background-color: #EEEEEE;
+	border: 1px solid #d9d9d9!important;
+}
+.btn-skill:hover {
+	width: 115px;
+	margin-top: 15px;
+	background-color: #CCCCCC!important;
+	border: 1px solid #CCCCCC!important;
+}
+
+.btn-click{
+	background-color:#CCCCCC!important;
+}
+.skill {
+	display: none;
+}
+.btn-user-skill {
+	background-color: #00abb3;
+	color: white;
+	width: 10%;
+	border-radius: 30px;
+	border: 1px solid #00abb3;
+	margin-left: 15px;
+}
+.btn-user-skill:hover {
+	background-color: #00abb3;
+	color: white!important;
+	width: 10%;
+	border: 1px solid #00abb3;
+}
+.exit-profile-skill {
+	width: 100%;
+	padding-top: 15px;
+	padding-left: 40px;
+}
+.exit-profile-skill-text {
+	width: 100%;
+	height: 90%;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.user-profile-skill {
+	width: 960px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 32px 32px 40px 32px;
+	border-bottom: 2px solid #ececec;
 }

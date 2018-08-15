@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_skills = @user.skill.split(", ")
   end
 
   def edit
@@ -15,13 +16,15 @@ class UsersController < ApplicationController
 
   def update
     @user =User.find(params[:id])
-    @user.update(user_params)
+    puts user_params[:email]
+    a = user_params[:skill].join(", ")
+    @user.update(email: user_params[:email], name: user_params[:name], skill: a)
     redirect_to user_path(@user.id)
   end
 
   private
 
   def user_params
-      params.require(:user).permit(:name,:kind_id,:residence,:profile_image,:pr,:experience)
+      params.require(:user).permit(:name,:kind_id,:residence,:profile_image,:pr,:experience, :email, skill: [])
   end
 end
