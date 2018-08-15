@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   def update
     @user =User.find(params[:id])
-    puts user_params[:email]
     a = user_params[:skill].join(", ")
     @user.update(email: user_params[:email], name: user_params[:name], skill: a)
     redirect_to user_path(@user.id)

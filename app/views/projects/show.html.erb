@@ -1,2 +1,22 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+
+<div class="project-info">
+	<div class="project-info-top">
+		<div class="client-image">
+			<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "user1.png", :size => "120x120" %>
+		</div>
+		<div class="project-genre"><%= @project.genre %></div>
+		<div class="project-title"><strong><%= @project.project_title %></strong></div>
+		<div class="muted-info"><%= @project.location %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @project.fee %>円</div>
+	</div>
+</div>
+<div class="project-info-content clearfix">
+	<div class="project-info-main">
+		<div class="project-info-title">業務内容について</div>
+		<p class="english-info-title">ABOUT JOB</p>
+		<div class="project-info-text"><%= simple_format(@project.project_content) %> </div>
+		<div class="project-info-title">業務内容について</div>
+		<p class="english-info-title">ABOUT JOB</p>
+		<div class="project-info-text"><%= simple_format(@project.project_content) %> </div>
+	</div>
+	<div class="project-info-side"></div>
+</div>
