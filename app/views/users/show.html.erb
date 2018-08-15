@@ -16,5 +16,47 @@
         <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
       </div>
     </div>
+    <div class="user-profile-pr">
+      <div class="profile-pr">自己PR</div>
+      <% if @user.pr == nil || @user.pr == "" %>
+        <div class="profile-pr-text">
+          <div class="nil-profile-pr-text">自己PRが設定されていません</div>
+        </div>
+      <% else %>
+      <div class="exit-profile-pr-text">
+      <div class="exit-profile-pr-text"><%= @user.pr %></div>
+      </div>
+      <% end %>
+    </div>
+      <div class="user-profile-pr">
+      <div class="profile-pr">実績・経験</div>
+      <% if @user.experience == nil || @user.experience == "" %>
+        <div class="profile-pr-text">
+          <div class="nil-profile-pr-text">実績・経験が設定されていません</div>
+        </div>
+      <% else %>
+      <div class="exit-profile-pr-text">
+      <div class="exit-profile-pr-text"><%= @user.experience %></div>
+      </div>
+      <% end %>
+    </div>
+    <% if @user.skill == nil || @user.skill == "" %>
+    <div class="user-profile-pr">
+      <div class="profile-pr">スキル</div>
+        <div class="profile-pr-text">
+          <div class="nil-profile-pr-text">スキルが設定されていません</div>
+        </div>
+    <% else %>
+    <div class="user-profile-skill">
+      <div class="profile-pr">スキル</div>
+      <div class="exit-profile-skill-text">
+      <div class="exit-profile-skill">
+        <% @user_skills.each do |skill| %>
+          <div class="btn btn-user-skill"><%= skill %></div>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </body>

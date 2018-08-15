@@ -1,26 +1,143 @@
 <body>
 <%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"%>
 
-  <div class="user-main-content">
-    <div class="user-edit-top">
-      <div class="user-edit-title"><span>アカウント情報</span></div>
-      <%=form_for(@user) do |f| %>
-          <div class="user-edit-image">
-            <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
-             <label for="files">
-             	<div class="btn btn-image-edit">プロフィール写真選択</div>
-                <%=f.attachment_field :profile_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
-             </label>
-          </div>
-          <div class="user-profile-name">
-            <%= @user.name %>
-          </div>
-          <div class="user-profile-residence">
-            <%= @user.residence %>
-          </div>
-          <div class="user-profile-edit">
-        </div>
-      <% end %>
-    </div>
-  </div>
+	<div class="user-main-content">
+		<%=form_for(@user) do |f| %>
+			<div class="user-edit-top">
+				<div class="user-edit-title"><span>アカウント情報</span></div>
+					<div class="user-edit-image">
+						<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
+						<label for="files">
+							<div class="btn btn-image-edit">プロフィール写真選択</div>
+							<%=f.attachment_field :profile_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
+						</label>
+					</div>
+					<div class="many-fields">
+						<div class="field">
+							<%= f.label :ユーザー名 %><br />
+							<%= f.text_field :name, autofocus: true, class: "user-edit-name" %>
+						</div>
+						<div class="field">
+							<%= f.label :メールアドレス %><br />
+							<%= f.email_field :email, class: "user-edit-email" %>
+						</div>
+						<div class="field">
+							<%= f.label :居住地 %><br />
+							<%= f.select :residence, User.residences.keys, {prompt: '選択してください'}, class: 'form-control btn btn-edit-residence' %>
+						</div>
+					</div>
+					<div class="user-profile-residence">
+						<%= @user.residence %>
+					</div>
+					<div class="user-profile-edit">
+				</div>
+			</div>
+			<div class="user-pr clearfix">
+				<div class="user-pr-title">
+					<div class="pr-description-title">
+						自己PR
+					</div>
+					<br>
+					<p class="pr-description-text">これまでの経験や得意分野を明確にし、セールスポイントとして伝えましょう。</p>
+				</div>
+				<div class="user-pr-text">
+					<%= f.text_area :pr, rows:'11', class: "form-control pr" %>
+				</div>
+			</div>
+			<div class="user-pr clearfix">
+				<div class="user-pr-title">
+					<div class="pr-description-title">
+						実績・経験
+					</div>
+					<br>
+					<p class="pr-description-text">これまでの職場での業務内容や、果たした役割などを明確に記入しましょう。</p>
+				</div>
+				<div class="user-pr-text">
+					<%= f.text_area :experience, rows:'11', class: "form-control pr ",placeholder: "" %>
+				</div>
+			</div>
+			<div class="user-pr clearfix">
+				<div class="user-pr-title">
+					<div class="pr-description-title">
+						スキル
+					</div>
+					<br>
+					<p class="pr-description-text">自分が持っているスキルを記入しましょう。<br>マッチングが高まります。</p>
+				</div>
+				<div class="user-pr-text clearfix">
+					<div class="user-pr-skill-1">
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="LGS" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;LGS&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="クロス" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;クロス&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="左官" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;左官&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="ガラス" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;ガラス&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="貼床" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;貼床&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+					</div>
+					<div class="user-pr-skill-2">
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="荷揚" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;荷揚&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="雜工" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;雑工&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="電気" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;電気&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="塗装" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;塗装&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill ">
+							<input class="skill" type="checkbox" value="大工" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;大工&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+					</div>
+					<div class="user-pr-skill-3">
+						<label class="btn btn-skill">
+							<input  class="skill" type="checkbox" value="シール" name="user[skill][]"  >&nbsp;&nbsp;&nbsp;&nbsp;シール&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="鳶" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;鳶&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="置床" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;置床&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="防災" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;防災&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="サイン" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;サイン&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+					</div>
+					<div class="user-pr-skill-4">
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="サッシ" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;サッシ&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="建具" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;建具&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="デザイン" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;デザイン&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="設計" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;設計&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+						<label class="btn btn-skill">
+							<input  class="skill"type="checkbox" value="施工管理" name="user[skill][]" >&nbsp;&nbsp;&nbsp;&nbsp;施工管理&nbsp;&nbsp;&nbsp;&nbsp;
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="user-profile-complete">
+                <%= f.submit "新規登録完了", class: "btn btn-complete" %>
+              </div>
+		<% end %>
+	</div>
 </body>
