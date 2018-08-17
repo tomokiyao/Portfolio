@@ -56,18 +56,18 @@
 	height: 800px;
 }
 .project-info-main {
-	width: 60%;
-	height: 100%;
-	margin-left: 10%;
+	width: 55%;
+	margin-left: 13%;
 	float: left;
 	padding-top: 64px;
 }
 .project-info-side {
-	width: 20%;
+	width: 17%;
 	height: 800px;
 	background-color: blue;
 	float: left;
 	margin-right: 10%;
+	margin-left: 3%;
 }
 .project-genre {
 	color: #0060ff;
@@ -114,3 +114,24 @@
 	font-family: "Noto Sans JP", sans-serif;
 	margin-bottom: 60px;
 }
+.divider-top {
+	margin-top: 64px;
+	padding: 64px 0 64px 0;
+	border-top: 1px solid #CACCCE;
+}
+.table td {
+	border: 1px solid #ececec;
+	font-size: 13px;
+	letter-spacing: 0.02em;
+	vertical-align: middle;
+	border-color: #CACCCE;
+	padding: 1.25em!important;
+	-webkit-font-smoothing: antialiased;
+}
+ td:first-child {
+ 	background-color: #ECEEF0;
+ 	width: 25%
+ }
+ td:last-child {
+ 	background-color: #f8f8f8;
+ }

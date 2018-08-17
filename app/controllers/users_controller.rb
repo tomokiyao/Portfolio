@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     @user =User.find(params[:id])
     a = user_params[:skill].join(", ")
-    @user.update(email: user_params[:email], name: user_params[:name], skill: a)
+    @user.update(email: user_params[:email], name: user_params[:name], skill: a, user_params[:kind_id], user_params[:residence], user_params[:profile_image], user_params[:pr], user_params[:experience])
     redirect_to user_path(@user.id)
   end
 
