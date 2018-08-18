@@ -1,0 +1,57 @@
+
+<div class="project-info">
+	<div class="project-info-top">
+		<div class="client-image">
+			<%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "user1.png", :size => "120x120" %>
+		</div>
+		<div class="project-genre"><%= @project.genre %></div>
+		<div class="project-title"><strong><%= @project.project_title %></strong></div>
+		<div class="muted-info"><%= @project.location %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @project.fee %>円</div>
+	</div>
+</div>
+<div class="project-info-content clearfix">
+	<div class="project-info-main">
+		<div class="project-info-title">工事内容について</div>
+		<p class="english-info-title">ABOUT JOB</p>
+		<div class="project-info-text"><%= simple_format(@project.project_content) %> </div>
+		<div class="project-info-title">活躍できる人物像</div>
+		<p class="english-info-title">IDEAL</p>
+		<div class="project-info-text">
+			<必須条件><br>
+			<%= simple_format(@project.required_skill) %><br>
+			<歓迎条件>
+			<%= simple_format(@project.welcome_skill) %>
+		</div>
+		<div class="divider-top">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>報酬</td>
+						<td><%= @project.fee %></td>
+					</tr>
+					<tr>
+						<td>現場住所</td>
+						<td><%= @project.location %><%= @project.detail_location %></td>
+					</tr>
+					<tr>
+						<td>勤務時間</td>
+						<td><%= @project.time %></td>
+					</tr>
+					<tr>
+						<td>工期</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>募集職種</td>
+						<td><%= @project.genre %></td>
+					</tr>
+					<tr>
+						<td>諸手当</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="project-info-side"></div>
+</div>

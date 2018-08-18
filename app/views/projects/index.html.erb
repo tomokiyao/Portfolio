@@ -1,0 +1,31 @@
+
+<div class="project-serch">
+	<h1>Projects#index</h1>
+	<p>Find me in app/views/projects/index.html.erb</p>
+</div>
+<div class="project-content clearfix">
+	<div class="project-main clearfix">
+		<p>仕事一覧</p>
+		<% @projects.each do |project| %>
+		<div class="project-box">
+			<div class="btn btn-title"><%= project.genre %></div>
+			<div class="project-box-text"><%= project.project_title %></div>
+				<div class="box-info clearfix">
+					<div class="box-info-left">
+						<div class="project-box-name">株式会社</div>
+						<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+					</div>
+					<div class="box-info-right">
+						<div class="project-box-image"><%= project.project_image %></div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+		<div class="project-box"></div>
+		<div class="project-box"></div>
+		<div class="project-box"></div>
+		<div class="project-box"></div>
+		<div class="project-box"></div>
+	</div>
+	<div class="project-side"></div>
+</div>

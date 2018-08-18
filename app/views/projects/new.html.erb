@@ -1,0 +1,79 @@
+<body>
+		<div class="project-main-content">
+			<%=form_for(@project) do |f| %>
+				<div class="project-top">
+					<div class="project-title"><span>案件情報入力</span></div>
+						<div class="user-edit-image">
+							<%= attachment_image_tag @project, :project_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
+							<label for="files">
+								<div class="btn btn-image-edit">クライアント画像選択</div>
+								<%=f.attachment_field :project_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
+							</label>
+						</div>
+						<div class="many-fields">
+							<div class="field">
+								<%= f.label :案件情報見出し %><br />
+								<%= f.text_field :project_title, autofocus: true, class: "project-edit-title" %>
+							</div>
+							<div class="field">
+								<%= f.label :給与 %><br />
+								<%= f.text_field :fee,  class: "project-edit-fee" %><strong>円</strong>
+							</div>
+							<div class="field">
+								<%= f.label :現場住所 %><br />
+								<%= f.select :location, Project.locations.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %><br>
+								<br>
+								<%= f.text_field :detail_location, autofocus: true, class: "project-edit-title" %>
+							</div>
+							<div class="field">
+								<%= f.label :職種 %><br />
+								<%= f.select :genre, Project.genres.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %>
+							</div>
+							<div class="field">
+								<%= f.label :業務時間 %><br />
+								<%= f.text_field :time,  class: "project-edit-fee" %>
+							</div>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								業務内容
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :project_content, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								必須スキル
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :required_skill, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								歓迎スキル
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :welcome_skill, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-profile-complete">
+                		<%= f.submit "案件登録完了", class: "btn btn-complete" %>
+              		</div>
+			<% end %>
+		</div>
+</body>
