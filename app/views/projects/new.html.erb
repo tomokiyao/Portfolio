@@ -2,14 +2,7 @@
 		<div class="project-main-content">
 			<%=form_for(@project) do |f| %>
 				<div class="project-top">
-					<div class="project-title"><span>案件情報入力</span></div>
-						<div class="user-edit-image">
-							<%= attachment_image_tag @project, :project_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
-							<label for="files">
-								<div class="btn btn-image-edit">クライアント画像選択</div>
-								<%=f.attachment_field :project_image, plaeholder:"プロフィール画像",id: "files", class: "user-edit-form" %>
-							</label>
-						</div>
+					<div class="project-topic"><span>新規案件依頼</span></div>
 						<div class="many-fields">
 							<div class="field">
 								<%= f.label :案件情報見出し %><br />

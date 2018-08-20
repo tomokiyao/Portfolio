@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @user_skills = @project.user.skill.split(", ")
   end
 
   def new
@@ -13,8 +14,10 @@ class ProjectsController < ApplicationController
 
   def create
     project = Project.new(project_params)
+    project.user_id = current_user.id
     project.save
-    redirect_to project_path(project)
+    puts project.errors.full_messages
+    redirect_to project_path(project.id)
   end
 
   def edit

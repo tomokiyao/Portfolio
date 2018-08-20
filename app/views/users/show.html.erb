@@ -1,66 +1,84 @@
 <body>
 <%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"%>
-
-  <div class="user-main-content">
-    <div class="user-profile-top">
-      <div class="user-profile-image">
-        <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle", fallback: "user1.png", :size => "120x120" %>
-      </div>
-      <div class="user-profile-name">
-        <strong><%= @user.name %></strong>
-      </div>
-      <div class="user-profile-residence">
-        <%= @user.residence %>
-      </div>
-      <div class="user-profile-edit">
-        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
-      </div>
-    </div>
-    <div class="user-profile-pr">
-      <div class="profile-pr">自己PR</div>
-      <p class="english-profile-pr">about myself</p>
-      <% if @user.pr == nil || @user.pr == "" %>
-        <div class="profile-pr-text">
-          <div class="nil-profile-pr-text">自己PRが設定されていません</div>
+    <div class="user-main-content">
+      <div class="company-profile-top">
+        <div class="user-profile-image">
+          <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "user1.png", :size => "110x110" %>
         </div>
-      <% else %>
-      <div class="exit-profile-pr-text">
-      <div class="exit-profile-pr-text"><%= @user.pr %></div>
-      </div>
-      <% end %>
-    </div>
-      <div class="user-profile-pr">
-      <div class="profile-pr">実績・経験</div>
-      <p class="english-profile-pr">performance</p>
-      <% if @user.experience == nil || @user.experience == "" %>
-        <div class="profile-pr-text">
-          <div class="nil-profile-pr-text">実績・経験が設定されていません</div>
+        <div class="user-profile-name">
+          <strong><%= @user.name %></strong>
         </div>
-      <% else %>
-      <div class="exit-profile-pr-text">
-      <div class="exit-profile-pr-text"><%= @user.experience %></div>
-      </div>
-      <% end %>
-    </div>
-    <% if @user.skill == nil || @user.skill == "" %>
-    <div class="user-profile-pr">
-      <div class="profile-pr">スキル</div>
-      <p class="english-profile-pr">skill</p>
-        <div class="profile-pr-text">
-          <div class="nil-profile-pr-text">スキルが設定されていません</div>
+        <div class="user-profile-residence">
+          <%= @user.residence %>
         </div>
-    <% else %>
-    <div class="user-profile-skill">
-      <div class="profile-pr">スキル</div>
-      <p class="english-profile-pr">skill</p>
-      <div class="exit-profile-skill-text">
-      <div class="exit-profile-skill">
-        <% @user_skills.each do |skill| %>
-          <div class="btn btn-user-skill"><%= skill %></div>
-        <% end %>
+        <div class="user-profile-edit">
+          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
         </div>
       </div>
-      <% end %>
+      <div class="project-info-content clearfix">
+        <div class="project-info-main">
+          <div class="project-info-title">会社概要</div>
+          <p class="english-info-title">Mission</p>
+          <% if @user.mission == nil || @user.mission == "" %>
+            <div class="company-pr-text">
+              <div class="nil-profile-pr-text">ミッションが設定されていません</div>
+            </div>
+              <br>
+              <br>
+          <% else %>
+          <div class="project-info-text"><%= simple_format(@user.mission) %> </div>
+          <% end %>
+          <div class="project-info-title">事業内容</div>
+          <p class="english-info-title">Service</p>
+            <% if @user.service == nil || @user.service == "" %>
+                <div class="company-pr-text">
+                  <div class="nil-profile-pr-text">ミッションが設定されていません</div>
+                </div>
+            <% else %>
+              <div class="project-info-text"><%= simple_format(@user.service) %> </div>
+            <% end %>
+          <div class="project-info-title">実績</div>
+          <p class="english-info-title">Performance</p>
+            <% if @user.experience == nil || @user.experience == "" %>
+                <div class="company-pr-text">
+                  <div class="nil-profile-pr-text">実績が設定されていません</div>
+                </div>
+                <br>
+                <br>
+            <% else %>
+              <div class="project-info-text"><%= simple_format(@user.experience) %> </div>
+            <% end %>
+          </div>
+        <div class="company-info-side">
+          <div class="side-company">
+            <div class="side-company-name">
+              <%= @user.name %>
+                <p><%= @user.residence %><%= @user.detail_residence %></p>
+              </div>
+            <table class="company-side-info">
+              <tbody>
+                <tr>
+                  <td>設立年</td>
+                  <td><%= @user.establishment %></td>
+                </tr>
+                <tr>
+                  <td>従業員数</td>
+                  <td><%= @user.employee %></td>
+                </tr>
+                <tr>
+                  <td>平均年齢</td>
+                  <td><%= @user.average_age %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="side-skill">
+            <div class="side-company-skill"">対応工事</div>
+            <% @user_skills.each do |skill| %>
+              <li class="btn btn-side-skill"><%= skill %></li>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 </body>
