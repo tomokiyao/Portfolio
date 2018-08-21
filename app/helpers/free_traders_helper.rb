@@ -1,0 +1,2 @@
+module FreeTradersHelper
+end
