@@ -2,7 +2,7 @@
 		<div class="project-main-content">
 			<%=form_for(@free_trader) do |f| %>
 				<div class="project-top">
-					<div class="project-topic"><span>新規案件依頼</span></div>
+					<div class="project-topic"><span>空き情報登録</span></div>
 					<div class="many-fields">
 						<div class="field">
 							<%= f.label :タイトル %><br />
@@ -10,7 +10,7 @@
 						</div>
 						<div class="field">
 							<%= f.label :人数 %><br />
-							<%= f.number_field :first_number_of_people,  class: "project-edit-fee" %><strong>円</strong>
+							<%= f.number_field :first_number_of_people,  class: "project-edit-people" %><strong>〜</strong><%= f.number_field :second_number_of_people,  class: "project-edit-people" %>
 						</div>
 						<div class="field">
 							<%= f.label :職種 %><br />
@@ -18,9 +18,185 @@
 						</div>
 						<div class="field">
 							<%= f.label :対応期間 %><br />
-							<%= f.date_field :first_term,  class: "project-edit-fee" %>
+							<%= f.date_field :first_term,  class: "project-edit-date" %><strong>〜</strong><%= f.date_field :second_term,  class: "project-edit-date" %>
 						</div>
 					</div>
+				</div>
+				<div class="user-pr clearfix">
+					<div class="user-pr-title">
+						<div class="pr-description-title">
+							募集詳細
+						</div>
+						<br>
+						<p class="pr-description-text">募集背景を記載しましょう<br>明確に記載することでマッチング率が高まります。</p>
+					</div>
+					<div class="user-pr-text">
+						<%= f.text_area :wanted_detail, rows:'11', class: "form-control pr" %>
+					</div>
+				</div>
+				<div class="user-area clearfix">
+					<div class="user-pr-title">
+						<div class="pr-description-title">
+							対応可能エリア
+						</div>
+						<br>
+						<p class="pr-description-text">対応可能なエリアを選択しましょう。<br>多いほどマッチングが高まります。</p>
+					</div>
+					<div class="user-pr-text clearfix">
+						<div class="area-title">北海道</div>
+							<label>
+								<input type="checkbox" value="北海道" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;北海道&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">東北</div>
+							<label>
+								<input type="checkbox" value="青森" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;青森&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="岩手" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;岩手&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="宮城" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;宮城&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="秋田" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;秋田&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="山形" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;山形&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="福島" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;福島&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">関東</div>
+							<label>
+								<input type="checkbox" value="茨城" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;茨城&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="栃木" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;栃木&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="群馬" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;群馬&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="埼玉" name="free_trader[area][]"  >&nbsp;&nbsp;&nbsp;&nbsp;埼玉&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="千葉" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;千葉&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="神奈川" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;神奈川&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="東京" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;東京&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">中部</div>
+							<label>
+								<input type="checkbox" value="新潟" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;新潟&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="富山" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;富山&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="石川" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;石川&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="福井" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;福井&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="山梨" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;山梨&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="長野" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;長野&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="岐阜" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;岐阜&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="静岡" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;静岡&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="愛知" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;愛知&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">近畿</div>
+							<label>
+								<input type="checkbox" value="三重" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;三重&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="滋賀" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;滋賀&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input  type="checkbox" value="京都" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;京都&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="大阪" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;大阪&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="兵庫" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;兵庫&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="奈良" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;奈良&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="和歌山" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;和歌山&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">中国</div>
+							<label>
+								<input  type="checkbox" value="鳥取" name="free_trader[area][]"  >&nbsp;&nbsp;&nbsp;&nbsp;鳥取&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="島根" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;島根&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="岡山" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;岡山&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="広島" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;広島&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="山口" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;山口&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">四国</div>
+							<label>
+								<input type="checkbox" value="徳島" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;徳島&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="香川" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;香川&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="愛媛" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;愛媛&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="高知" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;高知&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						<div class="area-title">九州</div>
+							<label>
+								<input type="checkbox" value="福岡" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;福岡&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="佐賀" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;佐賀&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="長崎" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;長崎&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="熊本" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;熊本&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="大分" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;大分&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="宮崎" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;宮崎&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="鹿児島" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;鹿児島&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+							<label>
+								<input type="checkbox" value="沖縄" name="free_trader[area][]" >&nbsp;&nbsp;&nbsp;&nbsp;沖縄&nbsp;&nbsp;&nbsp;&nbsp;
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="user-profile-complete">
+					<%= f.submit "空き情報登録完了", class: "btn btn-complete" %>
 				</div>
 			<% end %>
 		</div>

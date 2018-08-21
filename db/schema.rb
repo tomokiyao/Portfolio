@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_21_063450) do
+ActiveRecord::Schema.define(version: 2018_08_21_094318) do
 
   create_table "free_traders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_08_21_063450) do
     t.integer "second_number_of_people"
     t.date "first_term"
     t.date "second_term"
+    t.integer "user_id"
+    t.string "area"
   end
 
   create_table "projects", force: :cascade do |t|
