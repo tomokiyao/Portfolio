@@ -1,0 +1,27 @@
+	<body>
+		<div class="project-main-content">
+			<%=form_for(@free_trader) do |f| %>
+				<div class="project-top">
+					<div class="project-topic"><span>新規案件依頼</span></div>
+					<div class="many-fields">
+						<div class="field">
+							<%= f.label :タイトル %><br />
+							<%= f.text_field :trader_title, autofocus: true, class: "project-edit-title" %>
+						</div>
+						<div class="field">
+							<%= f.label :人数 %><br />
+							<%= f.number_field :first_number_of_people,  class: "project-edit-fee" %><strong>円</strong>
+						</div>
+						<div class="field">
+							<%= f.label :職種 %><br />
+							<%= f.select :trader_genre, FreeTrader.trader_genres.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %>
+						</div>
+						<div class="field">
+							<%= f.label :対応期間 %><br />
+							<%= f.date_field :first_term,  class: "project-edit-fee" %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</body>
