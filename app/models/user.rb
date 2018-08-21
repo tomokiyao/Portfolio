@@ -7,6 +7,7 @@ class User < ApplicationRecord
   attachment :profile_image
 
   has_many :projects
+  has_many :free_trader
 
   enum residence: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

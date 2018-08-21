@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index,:show, :edit, :update]
   resources :projects, only: [:index,:show,:new,:create,:edit,:update]
-  resources :free_traders
+  resources :free_traders, only: [:index,:show,:new,:create,:edit,:update]
 end

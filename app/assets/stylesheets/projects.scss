@@ -46,7 +46,7 @@
 	background-color: #1E2022;
 }
 .project-info-top {
-	width: 60%;
+	width: 55%;
 	height: 100%;
 	margin-left: 12%;
 	padding-top: 30px;
@@ -62,10 +62,12 @@
 }
 .project-info-side {
 	width: 17%;
-	height: 800px;
+	background-color: #fff;
 	float: left;
 	margin-right: 10%;
 	margin-left: 3%;
+	margin-top: -184px;
+	box-shadow: 0 2px 3px rgba(30,32,34,0.1), 0 0 0 1px rgba(30,32,34,0.1);
 }
 .btn-genre {
 	margin-top: 30px!important;

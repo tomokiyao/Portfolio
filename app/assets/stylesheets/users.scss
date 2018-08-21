@@ -183,9 +183,19 @@
 	background-color: #00abb3;
 	color: white;
 	width: 100%;
-	border-radius: 30px;
+	border-radius: 30px!important;
 	margin-top: 20px;
 	border: 1px solid #00abb3;
+	font-weight: bold!important;
+}
+.btn-complete:hover {
+	color: white!important;
+	width: 100%;
+	border-radius: 30px!important;
+	margin-top: 20px;
+	border: 1px solid #204d74!important;
+	font-weight: bold!important;
+	background-color: #286090!important;
 }
 .user-pr-skill-1 {
 	width: 25%;
@@ -268,13 +278,14 @@
 	border: 1px solid #d9d9d9;
 	border-radius: 10px;
 }
+
 .company-info-side {
 	width: 17%;
 	background-color: #fff;
 	float: left;
 	margin-right: 10%;
 	margin-left: 3%;
-	margin-top: -184px;
+	margin-top: 64px;
 	box-shadow: 0 2px 3px rgba(30,32,34,0.1), 0 0 0 1px rgba(30,32,34,0.1);
 }
 .side-company-name {
@@ -317,6 +328,12 @@
 	margin-bottom: 10px!important;
 	background-color: #00abb3;
 	color: white;
-	border-radius: 30px;
+	border: 1px solid #00abb3;
+}
+.btn-side-skill:hover {
+	margin-top: 10px!important;
+	margin-bottom: 10px!important;
+	background-color: #00abb3;
+	color: white!important;
 	border: 1px solid #00abb3;
 }

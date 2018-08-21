@@ -3,6 +3,13 @@ class FreeTradersController < ApplicationController
   end
 
   def show
+    @free_trader = FreeTrader.find(params[:id])
+    unless @free_trader.user.skill == nil
+      @user_skills = @free_trader.user.skill.split(", ")
+    end
+    unless @free_trader.area == nil
+      @trader_areas = @free_trader.area.split(",")
+    end
   end
 
   def edit
@@ -16,5 +23,27 @@ class FreeTradersController < ApplicationController
   end
 
   def create
+    unless area_params[:area] == nil
+      area = area_params[:area].join(",")
+      free_trader = FreeTrader.new(trader_title:free_trader_params[:trader_title], wanted_detail:free_trader_params[:wanted_detail], trader_genre:free_trader_params[:trader_genre],
+                                   first_number_of_people:free_trader_params[:first_number_of_people], second_number_of_people:free_trader_params[:second_number_of_people],
+                                   first_term:free_trader_params[:first_term], second_term:free_trader_params[:second_term], area:area)
+      free_trader.user_id = current_user.id
+      free_trader.save
+      redirect_to free_trader_path(free_trader.id)
+    else
+      free_trader = FreeTrader.new(free_trader_params)
+      free_trader.user_id = current_user.id
+      free_trader.save
+      redirect_to free_trader_path(free_trader.id)
+    end
+  end
+
+  private
+   def free_trader_params
+      params.require(:free_trader).permit(:trader_title,:wanted_detail,:trader_genre,:first_number_of_people,:second_number_of_people,:first_term, :second_term)
+  end
+  def area_params
+      params.require(:free_trader).permit(area:[])
   end
 end

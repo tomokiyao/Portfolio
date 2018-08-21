@@ -16,7 +16,6 @@ class ProjectsController < ApplicationController
     project = Project.new(project_params)
     project.user_id = current_user.id
     project.save
-    puts project.errors.full_messages
     redirect_to project_path(project.id)
   end
 
