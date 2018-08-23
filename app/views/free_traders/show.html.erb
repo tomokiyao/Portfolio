@@ -35,8 +35,10 @@
 					<tr>
 						<td>対応可能エリア</td>
 						<td>
-							<% @trader_areas.each do |area| %>
-								<li class="btn btn-area"><%= area %></li>
+							<% unless @trader_areas == nil %>
+								<% @trader_areas.each do |area| %>
+									<li class="btn btn-area"><%= area %></li>
+								<% end %>
 							<% end %>
 						</td>
 					</tr>

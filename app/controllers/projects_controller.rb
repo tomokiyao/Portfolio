@@ -25,6 +25,12 @@ class ProjectsController < ApplicationController
   def update
   end
 
+  def search
+        binding.pry
+    @projects = Project.where(genre: params[3]).search(params[:search])
+
+  end
+
   private
     def project_params
       params.require(:project).permit(:genre,:location,:fee,:time,:project_content,:project_title,:required_skill,:welcome_skill,:project_image_id,:detail_location)
