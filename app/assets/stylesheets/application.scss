@@ -155,3 +155,34 @@ body {
 	font-family: "Noto Sans JP", sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
+.navbar-main{
+	margin: 0;
+	border-radius: 0px;
+	background-color: #1E2022;
+	color: #fff;
+	border: 0px solid #fff;
+}
+.navbar-left span {
+	font-size: 40px;
+	font-weight: 600;
+	color: #EEEEEE;
+	padding-left: 30px;
+	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+.navbar-right {
+	padding-right: 5%;
+
+}
+.navbar-right li {
+	color: #EEEEEE;
+	list-style: none;
+	padding-right: 15px;
+	font-size: 15px;
+	line-height: 50px;
+
+}
+.navbar-right a {
+	color: #EEEEEE;
+	line-height: 20px;
+	font-weight: 600;
+}

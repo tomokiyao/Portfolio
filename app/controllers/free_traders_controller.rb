@@ -1,5 +1,6 @@
 class FreeTradersController < ApplicationController
   def index
+    @free_traders = FreeTrader.all
   end
 
   def show
