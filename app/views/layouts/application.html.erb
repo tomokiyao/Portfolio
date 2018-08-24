@@ -10,45 +10,70 @@
   </head>
 
   <body>
+<% if user_signed_in? %>
   <header class= "navbar navbar-main">
           <nav class= "nav navbar-nav navbar-left">
             <span>IC.inc</span>
           </nav>
-          <nav>
-            <ul class="navbar navbar-nav navbar-right">
-              <% if user_signed_in? %>
+          <nav class="nav navbar-nav navbar-right">
+            <ul id="menu">
               <li>
-                <%=link_to " Home", user_path(current_user) %>
+                <%=link_to " Home", root_path %>
               </li>
-              <li>
-                <%=link_to " Users", users_path(@users) %>
+              <li>投稿
+                <ul class="child">
+                  <li><%= link_to "案件情報投稿", new_project_path %></li>
+                  <li><%= link_to "空き情報投稿", new_free_trader_path %></li>
+                </ul>
               </li>
-              <li>
-                <%=link_to " 一覧", projects_path %>
+              <li>案件を探す
+                <ul class="child">
+                  <li><%=link_to "案件情報", projects_path %></li>
+                  <li><%= link_to "下請け情報", free_traders_path %></li>
+                </ul>
               </li>
-              <li>
-                <%= link_to " Logout", destroy_user_session_path, method: :delete %>
+              <li>プロフィール
+                <ul class="child">
+                  <li><%= link_to "My page", user_path(current_user.id) %></li>
+                  <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
+                  <li><%= link_to " Logout", destroy_user_session_path, method: :delete %></li>
+                </ul>
               </li>
-              <% else %>
-              <li>
-                <%=link_to " Home", homes_index_path, class: "glyphicon glyphicon-home" %>
-              </li>
-              <li>
-                <%=link_to " About", homes_show_path, class: "glyphicon glyphicon-user" %>
-              </li>
-              <li>
-                <%=link_to " Sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
-              </li>
-              <li>
-                <%=link_to " Log in", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
-              </li>
-              <% end %>
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </header>
+<% else %>
+  <header class= "navbar navbar-main">
+          <nav class= "nav navbar-nav navbar-left">
+            <span>IC.inc</span>
+          </nav>
+          <nav class="nav navbar-nav navbar-right">
+            <ul id="menu">
+              <li>
+                <%=link_to " Home", root_path %>
+              </li>
+              <li>案件を探す
+                <ul class="child">
+                  <li><%=link_to "案件情報", projects_path %></li>
+                  <li><%= link_to "下請け情報", free_traders_path %></li>
+                </ul>
+              </li>
+              <li>アカウント登録
+                <ul class="child">
+                  <li><%= link_to "ログイン", new_user_session_path %></li>
+                  <li><%= link_to "新規登録", new_user_registration_path %></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+<% end %>
     <%= yield %>
   </body>
 </html>

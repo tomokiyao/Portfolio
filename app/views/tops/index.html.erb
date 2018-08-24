@@ -1,0 +1,107 @@
+<div class="top-image">
+	<div class="top-content">
+		<div class="top-text">
+			<p class="sub-title">協力業者が見つかり、繋がれる</p>
+			<p class="main-title">建設業ネットワーク</p>
+			<p class="sub-title">IC.inc</p>
+		</div>
+	</div>
+	<div class="top-sign-in">
+		<%= link_to "まずは会員登録してネットワークに参加する", new_user_registration_path, class: "btn btn-top" %>
+	</div>
+	<div class="recommend">
+		<div class="recommend-title">こんな方にオススメ！！</div>
+		<div class="recommend-user clearfix">
+			<div class="recommend-user-text">
+				<p class="recommend-text">新しい会社を立ち上げたけど<br>
+				<span>ツテがない...仕事がない</span></p>
+				<img class="reccomend-image" src="/35086.png">
+			</div>
+			<div class="recommend-user-text-center">
+				<p class="recommend-text">大きな案件を手伝ってくれる<br>
+				<span>新しい業者を探したい</span></p>
+				<img class="reccomend-image-center" src="/19615.png">
+			</div>
+			<div class="recommend-user-text">
+				<p class="recommend-text">案件はたくさんあるのに<br>
+				<span>人手が足りない.....</span></p>
+				<img class="reccomend-image" src="/19643.png">
+			</div>
+		</div>
+		<div class="recommend-title">マッチングまでの流れ！！</div>
+		<div class="flow clearfix">
+			<div class="flow-1">
+				<p class="flow-text">会員情報登録</p>
+				<div class="flow-image-1">
+					<div class="mask">
+						<div class="image-caption">
+							まずは会員情報を登録しましょう。詳しく登録することによりマッチング率がたまります。
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="arrow"></div>
+			<div class="flow-2">
+				<p class="flow-text">募集情報掲載</p>
+				<div class="flow-image-2">
+					<div class="mask">
+						<div class="image-caption">
+							継続的な下請け業者の募集、継続的な元請け業者募集、空いている職人さんを登録できます。
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="arrow"></div>
+			<div class="flow-3">
+				<p class="flow-text">マッチング</p>
+				<div class="flow-image-3">
+					<div class="mask">
+						<div class="image-caption">
+							興味を持った建設会社さんからサイト内でメッセージが届きます。契約や支払い条件については個別に打ち合わせしてください。
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="recommend-title">新着案件情報</div>
+		<div class="new-project clearfix">
+			<% @projects.each do |project| %>
+			<%= link_to project_path(project.id) do %>
+				<div class="new-box">
+					<div class="btn btn-title"><%= project.genre %></div>
+					<div class="project-box-text"><%= project.project_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="project-box-name"><%= project.user.name %></div>
+								<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+							</div>
+							<div class="box-info-right">
+								<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="recommend-title">新着下請け情報</div>
+		<div class="new-project clearfix">
+			<% @free_traders.each do |trader| %>
+			<%= link_to free_trader_path(trader.id) do %>
+				<div class="new-box">
+					<div class="btn btn-title"><%= trader.trader_genre %></div>
+					<div class="project-box-text"><%= trader.trader_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="project-box-name"><%= trader.user.name %></div>
+								<div class="project-box-info"><%= trader.user.residence %></div>
+							</div>
+							<div class="trader-info-right">
+								<div class="project-box-image"><%= attachment_image_tag trader.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
