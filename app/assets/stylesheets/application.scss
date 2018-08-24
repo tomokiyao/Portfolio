@@ -23,7 +23,7 @@
 }
 
 .sign-in-body {
-	background-image: url(photo-15.jpeg);
+	background-image: url(roman-bozhko-251412-unsplash.jpg);
 	background-size: cover;
 }
 .sign-in-title {
@@ -36,10 +36,11 @@
 .sign-in-content {
 	background-color: #EEEEEE;
 	width: 22%;
-	border-radius: 20px;
 	padding: 35px;
 	margin-top: 120px;
 	margin-left: 180px;
+	border-radius: 5px;
+	box-shadow: 0px 20px 40px rgba(9,9,9,9.9);
 }
 .field {
 	margin-top: 20px;
@@ -170,19 +171,51 @@ body {
 	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 .navbar-right {
-	padding-right: 5%;
-
+	padding-right: 3%;
 }
-.navbar-right li {
-	color: #EEEEEE;
-	list-style: none;
-	padding-right: 15px;
-	font-size: 15px;
-	line-height: 50px;
 
-}
-.navbar-right a {
+ul a {
 	color: #EEEEEE;
 	line-height: 20px;
 	font-weight: 600;
+}
+ul a:hover {
+	color: #EEEEEE;
+	line-height: 20px;
+	font-weight: 600;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding-top: 18px;
+    color: #eeeeee;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+ul#menu li{
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    width: 120px;
+    background-color: #1E2022;
+    display: block;
+}
+ul.child{
+    display: none;
+    position: absolute;
+    margin-left: -5px;
+    padding: 0;
+}
+ul.child li a{
+    padding: 5px 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: -5px;
+    display: block;
+    color: #eeeeee;
+}
+li a:hover{
+    background: gray;
 }

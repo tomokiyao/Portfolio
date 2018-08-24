@@ -51,7 +51,9 @@
 			<p class="company-message-text">メッセージを送る</p>
 		</div>
 		<div class="company-detail">
-			<P class="btn btn-detail">会社の詳細情報を見る</P>
+			<%= link_to user_path(@free_trader.user.id) do %>
+				<P class="btn btn-detail">会社の詳細情報を見る</P>
+			<% end %>
 		</div>
 		<div class="side-company">
             <div class="side-company-name">

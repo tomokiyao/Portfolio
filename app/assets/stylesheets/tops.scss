@@ -70,7 +70,7 @@
 	width: 100%;
 	height: 300px;
 	margin-top: 40px;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 .recommend-user-text {
 	float: left;
@@ -102,4 +102,164 @@
 	padding-top: 40px;
 	max-width: 180px;
 	max-height: 200px;
+}
+.flow {
+	width: 100%;
+	height: 300px;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.flow-1 {
+	float: left;
+	height: 300px;
+	padding-right: 15px;
+
+}
+.flow-2 {
+	float: left;
+	height: 300px;
+	padding-left: 60px;
+	padding-right: 15px;
+}
+.flow-3 {
+	float: left;
+	height: 300px;
+	padding-left: 60px;
+
+}
+.flow-text {
+	font-size: 30px;
+	font-weight: 600;
+	color: #323648;
+}
+.flow-image-1 {
+	height: 230px;
+	width: 230px;
+	margin: 0 auto;
+	background-image: url(rawpixel-665349-unsplash.jpg);
+	background-position: center center;
+	background-size: cover;
+	border-radius: 115px;
+	border: 5px solid #444444;
+	position: relative;
+}
+.flow-image-1 .mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;	/* 絶対位置指定 */
+	top: 0;
+	left: 0;
+	opacity: 0;	/* マスクを表示しない */
+	background-color: rgba(0,0,0,0.6);	/* マスクは半透明 */
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	border-radius: 115px;
+}
+.flow-image-1:hover .mask {
+	opacity: 1;
+}
+.flow-image-2 .mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;	/* 絶対位置指定 */
+	top: 0;
+	left: 0;
+	opacity: 0;	/* マスクを表示しない */
+	background-color: rgba(0,0,0,0.6);	/* マスクは半透明 */
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	border-radius: 115px;
+}
+.flow-image-2:hover .mask {
+	opacity: 1;
+}
+.flow-image-3 .mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;	/* 絶対位置指定 */
+	top: 0;
+	left: 0;
+	opacity: 0;	/* マスクを表示しない */
+	background-color: rgba(0,0,0,0.6);	/* マスクは半透明 */
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	border-radius: 115px;
+}
+.flow-image-3:hover .mask {
+	opacity: 1;
+}
+.image-caption {
+	text-align: center;
+	padding-top: 70px;
+	color: #fff;
+	font-weight: 600;
+	font-size: 15px;
+}
+.flow-image-2 {
+	height: 230px;
+	width: 230px;
+	margin: 0 auto;
+	background-image: url(rawpixel-609022-unsplash.jpg);
+	background-size: cover;
+	background-position: center top 15px;
+	border-radius: 115px;
+	border: 5px solid #444444;
+	position: relative;
+}
+.flow-image-3 {
+	height: 230px;
+	width: 230px;
+	margin: 0 auto;
+	background-image: url(rawpixel-652547-unsplash.jpg);
+	background-position: center center;
+	background-size: cover;
+	border-radius: 115px;
+	border: 5px solid #444444;
+	position: relative;
+}
+.arrow {
+  display:inline-block;
+  height:40px;
+  width:60px;
+  background-color:#404040;
+  position:relative;
+  top:150px;
+  float: left;
+}
+.arrow:before {
+  position:absolute;
+  content:"";
+  width:0;
+  height:0;
+  border:50px solid transparent;
+  border-left:50px solid #404040;
+  left:60px;
+  top:-30px;
+}
+.new-project {
+	width: 100%;
+	height: 250px;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	text-align: left;
+}
+.new-box {
+	width: 30%;
+	height: 200px;
+	background-color: #fff;
+	margin: 15px;
+	float: left;
+	padding: 30px 26px 22px 26px;
+	box-shadow: 0 2px 3px rgba(30,32,34,0.1), 0 0 0 1px rgba(30,32,34,0.1);
+}
+.new-box:hover {
+	width: 30%;
+	height: 200px;
+	background-color: #fff;
+	margin: 15px;
+	float: left;
+	padding: 22px 26px;
+	box-shadow: 0px 20px 40px rgba(0,0,0,0.4);
 }

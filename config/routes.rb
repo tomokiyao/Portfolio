@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'tops/index'
+  root to: 'tops#index'
+  # get 'tops/index'
   get 'tops/show'
   devise_for :users
   get 'projects/search'
