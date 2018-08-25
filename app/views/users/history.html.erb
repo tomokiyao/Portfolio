@@ -1,0 +1,58 @@
+<div class="history-content">
+	<div class="history-title">
+		案件情報投稿履歴
+	</div>
+	<div class="history-project">
+		<% unless @projects == nil %>
+			<% @projects.each do |project| %>
+				<%= link_to project_path(project.id) do %>
+					<div class="history-box">
+						<div class="btn btn-title"><%= project.genre %></div>
+						<div class="history-box-text"><%= project.project_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="history-box-name"><%= project.user.name %></div>
+								<div class="history-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+							</div>
+							<div class="box-info-right">
+								<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		<% else %>
+			<div class="history-nil">
+				<div class="historry-nill-text">まだ投稿はありません</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="history-title">
+		空き情報投稿履歴
+	</div>
+	<div class="history-project">
+		<% unless @free_trader == nil %>
+			<% @free_traders.each do |trader| %>
+				<%= link_to free_trader_path(trader.id) do %>
+					<div class="history-box">
+						<div class="btn btn-title"><%= trader.trader_genre %></div>
+						<div class="history-box-text"><%= trader.trader_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="history-box-name"><%= trader.user.name %></div>
+								<div class="history-box-info"><%= trader.user.residence %></div>
+							</div>
+							<div class="box-info-right">
+								<div class="project-box-image"><%= attachment_image_tag trader.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		<% else %>
+			<div class="history-nil">
+				<div class="historry-nill-text">まだ投稿はありません</div>
+			</div>
+		<% end %>
+	</div>
+</div>

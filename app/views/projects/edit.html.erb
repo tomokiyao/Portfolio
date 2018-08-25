@@ -1,2 +1,72 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+<body>
+		<div class="project-main-content">
+			<%=form_for(@project) do |f| %>
+				<div class="project-top">
+					<div class="project-topic"><span>案件情報編集</span></div>
+						<div class="many-fields">
+							<div class="field">
+								<%= f.label :案件情報見出し %><br />
+								<%= f.text_field :project_title, autofocus: true, class: "project-edit-title" %>
+							</div>
+							<div class="field">
+								<%= f.label :給与 %><br />
+								<%= f.text_field :fee,  class: "project-edit-fee" %><strong>円</strong>
+							</div>
+							<div class="field">
+								<%= f.label :現場住所 %><br />
+								<%= f.select :location, Project.locations.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %><br>
+								<br>
+								<%= f.text_field :detail_location, autofocus: true, class: "project-edit-title" %>
+							</div>
+							<div class="field">
+								<%= f.label :職種 %><br />
+								<%= f.select :genre, Project.genres.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %>
+							</div>
+							<div class="field">
+								<%= f.label :業務時間 %><br />
+								<%= f.text_field :time,  class: "project-edit-fee" %>
+							</div>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								業務内容
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :project_content, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								必須スキル
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :required_skill, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-pr clearfix">
+						<div class="user-pr-title">
+							<div class="pr-description-title">
+								歓迎スキル
+							</div>
+							<br>
+							<p class="pr-description-text">現場での業務内容を明確に記載しよう<br>明確に記載することでトラブルを防げます。</p>
+						</div>
+						<div class="user-pr-text">
+							<%= f.text_area :welcome_skill, rows:'11', class: "form-control pr" %>
+						</div>
+					</div>
+					<div class="user-profile-complete">
+                		<%= f.submit "案件登録完了", class: "btn btn-complete" %>
+              		</div>
+			<% end %>
+		</div>
+</body>

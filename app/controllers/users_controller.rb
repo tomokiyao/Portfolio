@@ -34,6 +34,12 @@ class UsersController < ApplicationController
   end
   end
 
+  def history
+    @user = current_user
+    @projects = Project.where(user_id: @user)
+    @free_traders = FreeTrader.where(user_id: @user)
+  end
+
 
   private
 
