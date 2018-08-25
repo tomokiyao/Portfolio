@@ -224,8 +224,8 @@
 	float: left;
 }
 .box-info-right {
-	float: left;
-	padding-left: 45%;
+	float: right;
+	padding-right: 10%;
 }
 .company-detail {
 	height: 92px;
@@ -239,11 +239,31 @@
 	color: #fff;
 	text-align: center;
 }
+.company-message:hover {
+	height: 92px;
+	background-image: linear-gradient(30deg, #01698C 100%, #01F0D9 0%);
+	color: #fff;
+	text-align: center;
+}
+.company-delete {
+	height: 92px;
+	background-image: linear-gradient(30deg, #b40505 0%, #ff110075 100%);
+	color: #fff;
+	text-align: center;
+}
+.company-delete:hover {
+	height: 92px;
+	background-image: linear-gradient(30deg, #ff2626de 100%, #ff110075 0%);
+	color: #fff;
+	text-align: center;
+}
 .company-message-text {
 	font-size: 18px;
 	font-weight: 600;
 	padding-top: 14%;
+	text-decoration: none;
 }
+
 .btn-detail {
 	background-color: #E0FFFF;
 	color: #00CED1;

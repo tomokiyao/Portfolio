@@ -14,9 +14,21 @@ class FreeTradersController < ApplicationController
   end
 
   def edit
+    @free_trader = FreeTrader.find(params[:id])
   end
 
   def update
+    free_trader = FreeTrader.find(params[:id])
+    unless area_params[:area] == nil
+      area = area_params[:area].join(",")
+      free_trader.update(trader_title:free_trader_params[:trader_title], wanted_detail:free_trader_params[:wanted_detail], trader_genre:free_trader_params[:trader_genre],
+                                   first_number_of_people:free_trader_params[:first_number_of_people], second_number_of_people:free_trader_params[:second_number_of_people],
+                                   first_term:free_trader_params[:first_term], second_term:free_trader_params[:second_term], area:area)
+      redirect_to free_trader_path(free_trader.id)
+    else
+      free_trader.update
+      redirect_to free_trader_path(free_trader.id)
+    end
   end
 
   def new
