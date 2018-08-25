@@ -31,7 +31,7 @@
 		空き情報投稿履歴
 	</div>
 	<div class="history-project">
-		<% unless @free_trader == nil %>
+		<% unless @free_traders == nil %>
 			<% @free_traders.each do |trader| %>
 				<%= link_to free_trader_path(trader.id) do %>
 					<div class="history-box">

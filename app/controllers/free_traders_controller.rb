@@ -26,7 +26,7 @@ class FreeTradersController < ApplicationController
                                    first_term:free_trader_params[:first_term], second_term:free_trader_params[:second_term], area:area)
       redirect_to free_trader_path(free_trader.id)
     else
-      free_trader.update
+      free_trader.update(free_trader_params)
       redirect_to free_trader_path(free_trader.id)
     end
   end
@@ -50,6 +50,12 @@ class FreeTradersController < ApplicationController
       free_trader.save
       redirect_to free_trader_path(free_trader.id)
     end
+  end
+
+  def destroy
+    free_trader = FreeTrader.find(params[:id])
+    free_trader.destroy
+    redirect_to user_path(current_user)
   end
 
   private

@@ -36,7 +36,12 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    @projects = Project.where(genre: params[3]).search(params[:search])
+    if params[:genre] == ""
+      genre = Project.all
+    else
+      genre = params[:genre]
+    end
+    @projects = Project.where(genre: genre).search(params[:search])
 
   end
 
