@@ -62,8 +62,10 @@
 		<% end %>
 		<div class="company-detail">
 			<% if @free_trader.user_id == current_user.id %>
-				<%= link_to user_path(@free_trader.user.id) do %>
-					<P class="btn btn-detail">マイページへ</P>
+				<%= link_to free_trader_path(@free_trader.id), method: :delete, data: {confirm: "この情報を削除してよろしいですか？"} do %>
+					<div class="company-delete">
+						<p class="company-message-text">この情報を削除する</p>
+					</div>
 				<% end %>
 			<% else %>
 				<%= link_to user_path(@free_trader.user.id) do %>
