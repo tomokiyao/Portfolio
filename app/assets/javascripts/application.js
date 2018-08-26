@@ -71,3 +71,29 @@ $(function(){
   });
 });
 
+
+
+$(function(){
+  $('.ab').on('click', function(){
+    $('.modal_wrapper').fadeIn(500);
+    if ($(this).hasClass('aa')){
+      $('.a').fadeIn(500);
+    }else {
+      $('.b').fadeIn(500);
+    }
+  })
+  $('.aaa').click(function() {
+    $('.modal_wrapper').fadeOut(500);
+    $('.a').fadeOut(500);
+    $('.b').fadeOut(500);
+  })
+  $('.modal_wrapper').click(function(e) {
+    if (!$(e.target).closest('.a, .b').length) {
+      $('.modal_wrapper').fadeOut(500);
+      $('.a').fadeOut(500);
+      $('.b').fadeOut(500);
+    }
+  })
+})
+
+

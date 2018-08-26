@@ -58,6 +58,12 @@ class FreeTradersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def search
+    @free_traders = FreeTrader.where("trader_title like '%" + params[:search] +
+                                     "%' and trader_genre like '%" + FreeTrader.trader_genres[params[:trader_genre]].to_s +
+                                     "%' and area like '%" + params[:area] + "%'")
+  end
+
   private
    def free_trader_params
       params.require(:free_trader).permit(:trader_title,:wanted_detail,:trader_genre,:first_number_of_people,:second_number_of_people,:first_term, :second_term)

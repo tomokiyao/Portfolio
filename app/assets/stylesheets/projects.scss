@@ -160,12 +160,15 @@
 	padding-top: 64px;
 }
 .project-side {
-	width: 17%;
-	height: 800px;
-	background-color: blue;
+	width: 250px;
+	height: 400px;
+	background-color: #FFF;
 	float: left;
-	margin-right: 10%;
-	margin-left: 3%;
+	margin-right: 5%;
+	margin-left: 5%;
+	margin-top: 120px;
+	box-shadow: 0 2px 3px rgba(30,32,34,0.1), 0 0 0 1px rgba(30,32,34,0.1);
+	padding: 20px;
 }
 .project-box {
 	width: 45%;
@@ -281,6 +284,22 @@
 	padding-left: 22px!important;
 	padding-right: 22px!important;
 	line-height: 35px!important;
+}
+.project-main p {
+	font-size: 25px;
+	font-weight: 600;
+}
+.side-search-title {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+}
+.project-side p {
+	margin-top: 30px;
+	font-weight: 600;
+}
+.project-side li {
+	margin-top: 5px;
 }
 
 
