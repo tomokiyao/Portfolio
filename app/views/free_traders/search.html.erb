@@ -3,7 +3,7 @@
 	<%= text_field_tag :search, params[:search], class: "search_box" %>
 	<%= select_tag 'trader_genre', options_for_select(FreeTrader.trader_genres.keys), :include_blank => true, class: "search_box" %>
 	<select name="area" id="area" class="select_pre">
-          <option value="">選択してください</option>
+           <option value="">選択してください</option>
           <option value="北海道">北海道</option>
           <option value="青森県">青森県</option>
           <option value="岩手県">岩手県</option>
@@ -14,7 +14,7 @@
           <option value="茨城県">茨城県</option>
           <option value="栃木県">栃木県</option>
           <option value="群馬県">群馬県</option>
-          <option value="埼玉県">埼玉県</option>
+          <option value="埼玉">埼玉</option>
           <option value="千葉県">千葉県</option>
           <option value="東京都">東京都</option>
           <option value="神奈川県">神奈川県</option>
@@ -51,7 +51,7 @@
           <option value="宮崎県">宮崎県</option>
           <option value="鹿児島県">鹿児島県</option>
           <option value="沖縄県">沖縄県</option>
-          </select>
+         </select>
 	<%= submit_tag "search", class: "serch_btn" %>
 	<% end %>
 </div>
@@ -76,7 +76,7 @@
 			<% end %>
 		<% end %>
 	</div>
-	<div class="project-side">
+		<div class="project-side">
           <div class="side-search-title">おすすめ検索ワード</div>
           <p>対応エリア</p>
           <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=東京"><li class="btn btn-default">東京</li></a>

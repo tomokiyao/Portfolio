@@ -1,6 +1,12 @@
 <div class="project-serch">
-	<h1>Projects#index</h1>
-	<p>Find me in app/views/projects/index.html.erb</p>
+	<div class="search">
+		<%= form_tag projects_search_path, method: :get do %>
+		<%= text_field_tag :search, params[:search], class: "search_box" %>
+		<%= select_tag 'genre', options_for_select(Project.genres.keys), :include_blank => true, class: "search_box" %>
+		<%= select_tag 'location', options_for_select(Project.locations.keys), :include_blank => true, class: "search_box" %>
+		<%= submit_tag "search", class: "serch_btn" %>
+		<% end %>
+	</div>
 </div>
 <div class="project-content clearfix">
 	<div class="project-main clearfix">
@@ -23,5 +29,21 @@
 			<% end %>
 		<% end %>
 	</div>
-	<div class="project-side"></div>
+		<div class="project-side">
+          <div class="side-search-title">おすすめ検索ワード</div>
+          <p>現場エリア</p>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=東京都"><li class="btn btn-default">東京</li></a>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=神奈川県"><li class="btn btn-default">神奈川</li></a>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=大阪府"><li class="btn btn-default">大阪</li></a>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=埼玉県"><li class="btn btn-default">埼玉</li></a>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=福岡県"><li class="btn btn-default">福岡</li></a>
+          <a href="/projects/search?utf8=✓&search=&genre=&location=北海道"><li class="btn btn-default">北海道</li></a>
+          <p>職種</p>
+          <a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">塗装</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
+     </div>
 </div>

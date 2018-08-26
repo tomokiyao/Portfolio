@@ -36,12 +36,8 @@ class ProjectsController < ApplicationController
   end
 
   def search
-    if params[:genre] == ""
-      genre = Project.all
-    else
-      genre = params[:genre]
-    end
-    @projects = Project.where(genre: genre).search(params[:search])
+    @projects = Project.where("project_title like '%" + params[:search] +
+                              "%' and genre like '%" + Project.genres[params[:genre]].to_s + "%' and location like '%" + Project.locations[params[:location]].to_s + "%'")
 
   end
 
