@@ -1,2 +1,27 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div class="containar">
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="room-side">
+				<% @rooms.each do |room| %>
+					<%= link_to room_path(room.id) do %>
+					<div class="room-user <%= room.id %>">
+						<% made = User.find(room.made_id) %>
+						<% user = User.find(room.user_id) %>
+							<% if made.id == current_user.id %>
+								<p><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= user.name %></span></p>
+							<% else %>
+								<p><%= attachment_image_tag made, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= made.name %></span></p>
+							<% end %>
+					</div>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-xs-9">
+			<div class="room-main">
+				<%= render 'messages/message', room: @room, message: @message %>
+			</div>
+		</div>
+	</div>
+</div>
+

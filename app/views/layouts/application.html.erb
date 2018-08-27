@@ -37,6 +37,7 @@
                   <li><%= link_to "My page", user_path(current_user.id) %></li>
                   <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
                   <li><%= link_to "投稿履歴", users_history_path %></li>
+                  <li><%= link_to "メッセージ", rooms_path %></li>
                   <li><%= link_to " Logout", destroy_user_session_path, method: :delete %></li>
                 </ul>
               </li>
@@ -65,7 +66,6 @@
               <li>アカウント登録
                 <ul class="child">
                   <li><%= link_to "ログイン", tops_show_path %></li>
-                  <li><%= link_to "新規登録", tops_show_path %></li>
                 </ul>
               </li>
             </ul>
