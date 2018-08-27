@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_26_082356) do
+ActiveRecord::Schema.define(version: 2018_08_26_083111) do
 
   create_table "free_traders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2018_08_26_082356) do
     t.date "second_term"
     t.integer "user_id"
     t.string "area"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "sent_id"
+    t.text "content"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
