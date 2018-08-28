@@ -2,15 +2,24 @@
 <div class="project-serch">
 	<div class="search">
 		<%= form_tag projects_search_path, method: :get do %>
-		<%= text_field_tag :search, params[:search], class: "search_box" %>
-		<%= select_tag 'genre', options_for_select(Project.genres.keys), :include_blank => true, class: "search_box" %>
-		<%= select_tag 'location', options_for_select(Project.locations.keys), :include_blank => true, class: "search_box" %>
-		<%= submit_tag "search", class: "serch_btn" %>
+		<div class= "search-area">
+			<%= label_tag :キーワード %><br/>
+			<%= text_field_tag :search, params[:search], class: "search_box" %>
+		</div>
+		<div class= "search-area">
+			<%= label_tag :職種 %><br/>
+			<%= select_tag 'genre', options_for_select(Project.genres.keys), :include_blank => true, class: "genre_box" %>
+		</div>
+		<div class= "search-area">
+			<%= label_tag :現場地域 %><br/>
+			<%= select_tag 'location', options_for_select(Project.locations.keys), :include_blank => true, class: "location_box" %>
+		</div>
+		<%= submit_tag "検索", class: "btn btn-search" %>
 		<% end %>
 	</div>
 </div>
 <div class="project-content clearfix">
-	<div class="project-main clearfix">
+	<div class="project-main">
 		<p>仕事一覧</p>
 		<% @projects.each do |project| %>
 		<%= link_to project_path(project.id) do %>
