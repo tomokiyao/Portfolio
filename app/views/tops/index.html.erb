@@ -29,35 +29,37 @@
 			</div>
 		</div>
 		<div class="recommend-title">マッチングまでの流れ！！</div>
-		<div class="flow clearfix">
-			<div class="flow-1">
-				<p class="flow-text">会員情報登録</p>
-				<div class="flow-image-1">
-					<div class="mask">
-						<div class="image-caption">
-							まずは会員情報を登録しましょう。詳しく登録することによりマッチング率がたまります。
+		<div class="flow-main">
+			<div class="flow clearfix">
+				<div class="flow-1">
+					<p class="flow-text">会員情報登録</p>
+					<div class="flow-image-1">
+						<div class="mask">
+							<div class="image-caption">
+								まずは会員情報を登録しましょう。詳しく登録することによりマッチング率がたまります。
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="arrow"></div>
-			<div class="flow-2">
-				<p class="flow-text">募集情報掲載</p>
-				<div class="flow-image-2">
-					<div class="mask">
-						<div class="image-caption">
-							継続的な下請け業者の募集、継続的な元請け業者募集、空いている職人さんを登録できます。
+				<div class="arrow"></div>
+				<div class="flow-2">
+					<p class="flow-text">募集情報掲載</p>
+					<div class="flow-image-2">
+						<div class="mask">
+							<div class="image-caption">
+								継続的な下請け業者の募集、継続的な元請け業者募集、空いている職人さんを登録できます。
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="arrow"></div>
-			<div class="flow-3">
-				<p class="flow-text">マッチング</p>
-				<div class="flow-image-3">
-					<div class="mask">
-						<div class="image-caption">
-							興味を持った建設会社さんからサイト内でメッセージが届きます。契約や支払い条件については個別に打ち合わせしてください。
+				<div class="arrow"></div>
+				<div class="flow-3">
+					<p class="flow-text">マッチング</p>
+					<div class="flow-image-3">
+						<div class="mask">
+							<div class="image-caption">
+								興味を持った建設会社さんからサイト内でメッセージが届きます。契約や支払い条件については個別に打ち合わせしてください。
+							</div>
 						</div>
 					</div>
 				</div>
@@ -69,11 +71,11 @@
 			<%= link_to project_path(project.id) do %>
 				<div class="new-box">
 					<div class="btn btn-title"><%= project.genre %></div>
-					<div class="project-box-text"><%= project.project_title %></div>
+					<div class="project-top-text"><%= project.project_title %></div>
 						<div class="box-info clearfix">
 							<div class="box-info-left">
-								<div class="project-box-name"><%= project.user.name %></div>
-								<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+								<div class="project-top-name"><%= project.user.name %></div>
+								<div class="project-top-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
 							</div>
 							<div class="box-info-right">
 								<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
@@ -89,11 +91,11 @@
 			<%= link_to free_trader_path(trader.id) do %>
 				<div class="new-box">
 					<div class="btn btn-title"><%= trader.trader_genre %></div>
-					<div class="project-box-text"><%= trader.trader_title %></div>
+					<div class="project-top-text"><%= trader.trader_title %></div>
 						<div class="box-info clearfix">
 							<div class="box-info-left">
-								<div class="project-box-name"><%= trader.user.name %></div>
-								<div class="project-box-info"><%= trader.user.residence %></div>
+								<div class="project-top-name"><%= trader.user.name %></div>
+								<div class="project-top-info"><%= trader.user.residence %></div>
 							</div>
 							<div class="trader-info-right">
 								<div class="project-box-image"><%= attachment_image_tag trader.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>

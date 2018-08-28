@@ -96,7 +96,6 @@ $(function(){
   })
 
 
-
   $(document).on("ajax:success", "#aaa", function(e) {
     $('.room-text').val("");
     $('.room-main').html(e.detail[2]["response"])
