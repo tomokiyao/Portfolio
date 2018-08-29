@@ -10,7 +10,7 @@
 	<%= form_with url:room_messages_path(room), id: "aaa" do |f| %>
 	<div class="text-sent">
 	<%= f.text_area :content, rows:'3', class: "room-text",placeholder: "メッセージをここに" %>
-	<input type="submit" name="commit" value="送信" id="add" class="btn btn-room" data-disable-with="送信">
+	<%= f.submit "送信", class: "btn btn-room" %>
 	</div>
 <% end %>
 <script>

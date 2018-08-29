@@ -28,8 +28,13 @@
 				<div class="project-box-text"><%= project.project_title %></div>
 					<div class="box-info clearfix">
 						<div class="box-info-left">
-							<div class="project-box-name"><%= project.user.name %></div>
-							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+							<div class="project-box-name"><%= project.user.name %>
+							</div>
+							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %>
+							</div>
+							<div>
+								<%= render 'project_favorites/favorite', project: project %>
+							</div>
 						</div>
 						<div class="box-info-right">
 							<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>

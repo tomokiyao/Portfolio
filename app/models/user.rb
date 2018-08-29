@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :free_trader
   has_many :rooms
   has_many :messages
+  has_many :project_favorites, dependent: :destroy
 
   enum residence: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

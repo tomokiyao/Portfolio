@@ -10,6 +10,10 @@ resources :rooms, only: [:index, :show, :create] do
     resources :messages, only: [:create, :destroy]
   end
   resources :users, only: [:index,:show, :edit, :update]
-  resources :projects, only: [:index,:show,:new,:create,:edit,:update,:destroy]
+
+  resources :projects, only: [:index,:show,:new,:create,:edit,:update,:destroy] do
+    resource :project_favorites, only: [:create, :destroy]
+  end
+
   resources :free_traders, only: [:index,:show,:new,:create,:edit,:update,:destroy]
 end
