@@ -95,11 +95,38 @@ $(function(){
     }
   })
 
+  $(document).on("ajax:success", "#post", function(e) {
+    $('.favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'red');
+    $('.favorite' + e.detail[0]).attr("data-method", "delete");
+    $('.favorite' + e.detail[0]).attr("id", "delete");
+  })
+
+  $(document).on("ajax:success", "#delete", function(e) {
+    $('.favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'gray');
+    $('.favorite' + e.detail[0]).attr("id", "post");
+    $('.favorite' + e.detail[0]).attr("data-method", "post");
+  })
+
+  $(document).on("ajax:success", "#post_trader_favorite", function(e){
+    $('.trader_favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'red');
+    $('.trader_favorite' + e.detail[0]).attr("id", "delete_trader_favorite");
+    $('.trader_favorite' + e.detail[0]).attr("data-method", "delete");
+  })
+
+  $(document).on("ajax:success", "#delete_trader_favorite", function(e){
+    $('.trader_favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'gray');
+    $('.trader_favorite' + e.detail[0]).attr("id", "post_trader_favorite");
+    $('.trader_favorite' + e.detail[0]).attr("data-method", "post");
+  })
+
 
   $(document).on("ajax:success", "#aaa", function(e) {
     $('.room-text').val("");
     $('.room-main').html(e.detail[2]["response"])
+    $(".message3").scrollTop($(".message3")[0].scrollHeight);
   })
+
+
 })
 
 

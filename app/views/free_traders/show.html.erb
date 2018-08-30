@@ -1,79 +1,79 @@
 <div class="project-info">
-	<div class="project-info-top">
-		<div class="client-image">
-			<%= attachment_image_tag @free_trader.user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "user1.png", :size => "100x100" %>
-		</div>
-		<div class="btn btn-genre"><%= @free_trader.trader_genre %></div>
-		<div class="project-title"><strong><%= @free_trader.trader_title %></strong></div>
-		<div class="muted-info"><%= @free_trader.user.residence %></div>
-	</div>
+    <div class="project-info-top">
+        <div class="client-image">
+            <%= attachment_image_tag @free_trader.user, :profile_image, :fill, 120, 120, format: 'jpeg', fallback: "user1.png", :size => "100x100" %>
+        </div>
+        <div class="btn btn-genre"><%= @free_trader.trader_genre %></div>
+        <div class="project-title"><strong><%= @free_trader.trader_title %></strong></div>
+        <div class="muted-info"><%= @free_trader.user.residence %></div>
+    </div>
 </div>
 <div class="project-info-content clearfix">
-	<div class="project-info-main">
-		<div class="project-info-title">詳細</div>
-		<p class="english-info-title">Detail</p>
-		<div class="project-info-text"><%= simple_format(@free_trader.wanted_detail) %> </div>
-		<div class="divider-top">
-			<table class="table">
-				<tbody>
-					<tr>
-						<td>会社住所</td>
-						<td><%= @free_trader.user.residence %><%= @free_trader.user.detail_residence %></td>
-					</tr>
-					<tr>
-						<td>空き人数</td>
-						<td><%= @free_trader.first_number_of_people %>人〜<%= @free_trader.second_number_of_people %>人</td>
-					</tr>
-					<tr>
-						<td>対応期間</td>
-						<td><%= @free_trader.first_term %>〜<%= @free_trader.second_term %></td>
-					</tr>
-					<tr>
-						<td>職種</td>
-						<td><%= @free_trader.trader_genre %></td>
-					</tr>
-					<tr>
-						<td>対応可能エリア</td>
-						<td>
-							<% unless @trader_areas == nil %>
-								<% @trader_areas.each do |area| %>
-									<li class="btn btn-area"><%= area %></li>
-								<% end %>
-							<% end %>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-	<div class="project-info-side">
-		<% if @free_trader.user_id == current_user.id %>
-			<%= link_to edit_free_trader_path(@free_trader.id) do %>
-				<div class="company-message">
-					<p class="company-message-text">情報を編集する</p>
-				</div>
-			<% end %>
-		<% else %>
-			<%= link_to edit_free_trader_path(@free_trader.id) do %>
-				<div class="company-message">
-					<p class="company-message-text">メッセージを送る</p>
-				</div>
-			<% end %>
-		<% end %>
-		<div class="company-detail">
-			<% if @free_trader.user_id == current_user.id %>
-				<%= link_to free_trader_path(@free_trader.id), method: :delete, data: {confirm: "この情報を削除してよろしいですか？"} do %>
-					<div class="company-delete">
-						<p class="company-message-text">この情報を削除する</p>
-					</div>
-				<% end %>
-			<% else %>
-				<%= link_to user_path(@free_trader.user.id) do %>
-					<P class="btn btn-detail">会社情報を見る</P>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="side-company">
+    <div class="project-info-main">
+        <div class="project-info-title">詳細</div>
+        <p class="english-info-title">Detail</p>
+        <div class="project-info-text"><%= simple_format(@free_trader.wanted_detail) %> </div>
+        <div class="divider-top">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>会社住所</td>
+                        <td><%= @free_trader.user.residence %><%= @free_trader.user.detail_residence %></td>
+                    </tr>
+                    <tr>
+                        <td>空き人数</td>
+                        <td><%= @free_trader.first_number_of_people %>人〜<%= @free_trader.second_number_of_people %>人</td>
+                    </tr>
+                    <tr>
+                        <td>対応期間</td>
+                        <td><%= @free_trader.first_term %>〜<%= @free_trader.second_term %></td>
+                    </tr>
+                    <tr>
+                        <td>職種</td>
+                        <td><%= @free_trader.trader_genre %></td>
+                    </tr>
+                    <tr>
+                        <td>対応可能エリア</td>
+                        <td>
+                            <% unless @trader_areas == nil %>
+                                <% @trader_areas.each do |area| %>
+                                    <li class="btn btn-area"><%= area %></li>
+                                <% end %>
+                            <% end %>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="project-info-side">
+        <% if @free_trader.user_id == current_user.id %>
+            <%= link_to edit_free_trader_path(@free_trader.id) do %>
+                <div class="company-message">
+                    <p class="company-message-text">情報を編集する</p>
+                </div>
+            <% end %>
+        <% else %>
+            <%= link_to edit_free_trader_path(@free_trader.id) do %>
+                <div class="company-message">
+                    <p class="company-message-text">メッセージを送る</p>
+                </div>
+            <% end %>
+        <% end %>
+        <div class="company-detail">
+            <% if @free_trader.user_id == current_user.id %>
+                <%= link_to free_trader_path(@free_trader.id), method: :delete, data: {confirm: "この情報を削除してよろしいですか？"} do %>
+                    <div class="company-delete">
+                        <p class="company-message-text">この情報を削除する</p>
+                    </div>
+                <% end %>
+            <% else %>
+                <%= link_to user_path(@free_trader.user.id) do %>
+                    <P class="btn btn-detail">会社情報を見る</P>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="side-company">
             <div class="side-company-name">
               <%= @free_trader.user.name %>
                 <p><%= @free_trader.user.residence %><%= @free_trader.user.detail_residence %></p>
@@ -97,9 +97,11 @@
           </div>
           <div class="side-skill">
             <div class="side-company-skill"">対応工事</div>
-            <% @user_skills.each do |skill| %>
-              <li class="btn btn-side-skill"><%= skill %></li>
+            <% unless @user_skills == nil %>
+                <% @user_skills.each do |skill| %>
+                  <li class="btn btn-side-skill"><%= skill %></li>
+                <% end %>
             <% end %>
           </div>
-	</div>
+    </div>
 </div>

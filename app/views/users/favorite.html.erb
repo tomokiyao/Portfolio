@@ -1,6 +1,6 @@
 <div class="history-content">
 	<div class="history-title">
-		案件情報投稿履歴
+		お気に入り案件情報
 	</div>
 	<div class="history-project">
 		<% if @projects.present? %>
@@ -23,12 +23,12 @@
 			<% end %>
 		<% else %>
 			<div class="history-nil">
-				<div class="historry-nill-text">まだ投稿はありません</div>
+				<div class="historry-nill-text">お気に入りはありません</div>
 			</div>
 		<% end %>
 	</div>
 	<div class="history-title">
-		空き情報投稿履歴
+		お気に入り空き情報
 	</div>
 	<div class="history-project">
 		<% if @free_traders.present? %>
@@ -51,7 +51,7 @@
 			<% end %>
 		<% else %>
 			<div class="history-nil">
-				<div class="historry-nill-text">まだ投稿はありません</div>
+				<div class="historry-nill-text">お気に入りはありません</div>
 			</div>
 		<% end %>
 	</div>

@@ -22,38 +22,43 @@
 	<div class="project-main">
 		<p>仕事一覧</p>
 		<% @projects.each do |project| %>
-		<%= link_to project_path(project.id) do %>
-			<div class="project-box">
-				<div class="btn btn-title"><%= project.genre %></div>
-				<div class="project-box-text"><%= project.project_title %></div>
+				<div class="project-box">
+					<div class="project-box-top clearfix">
+						<div class="btn btn-title"><%= project.genre %></div>
+						<div class="project-box-favorite"><%= render 'project_favorites/favorite', project: project %></div>
+					</div>
+					<%= link_to project_path(project.id) do %>
+					<div class="project-box-text"><%= project.project_title %></div>
 					<div class="box-info clearfix">
 						<div class="box-info-left">
-							<div class="project-box-name"><%= project.user.name %></div>
-							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+							<div class="project-box-name"><%= project.user.name %>
+							</div>
+							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %>
+							</div>
 						</div>
 						<div class="box-info-right">
 							<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
 						</div>
 					</div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 		<% end %>
 	</div>
-		<div class="project-side">
-          <div class="side-search-title">おすすめ検索ワード</div>
-          <p>現場エリア</p>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=東京都"><li class="btn btn-default">東京</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=神奈川県"><li class="btn btn-default">神奈川</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=大阪府"><li class="btn btn-default">大阪</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=埼玉県"><li class="btn btn-default">埼玉</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=福岡県"><li class="btn btn-default">福岡</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=北海道"><li class="btn btn-default">北海道</li></a>
-          <p>職種</p>
-          <a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">塗装</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
-     </div>
+	<div class="project-side">
+		<div class="side-search-title">おすすめ検索ワード</div>
+		<p>現場エリア</p>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=東京都"><li class="btn btn-default">東京</li></a>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=神奈川県"><li class="btn btn-default">神奈川</li></a>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=大阪府"><li class="btn btn-default">大阪</li></a>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=埼玉県"><li class="btn btn-default">埼玉</li></a>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=福岡県"><li class="btn btn-default">福岡</li></a>
+		<a href="/projects/search?utf8=✓&search=&genre=&location=北海道"><li class="btn btn-default">北海道</li></a>
+		<p>職種</p>
+		<a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
+		<a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
+		<a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">塗装</li></a>
+		<a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
+		<a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
+		<a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
+	</div>
 </div>

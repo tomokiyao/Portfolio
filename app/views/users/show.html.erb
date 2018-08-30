@@ -73,9 +73,11 @@
           </div>
           <div class="side-skill">
             <div class="side-company-skill"">対応工事</div>
-            <% @user_skills.each do |skill| %>
-              <li class="btn btn-side-skill"><%= skill %></li>
-            <% end %>
+            <% unless @user_slills == nil %>
+                <% @user_skills.each do |skill| %>
+                  <li class="btn btn-side-skill"><%= skill %></li>
+                <% end %>
+            <% end%>
           </div>
         </div>
       </div>

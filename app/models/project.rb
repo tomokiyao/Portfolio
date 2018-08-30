@@ -3,6 +3,8 @@ class Project < ApplicationRecord
 
   belongs_to :user
 
+  has_many :project_favorites, dependent: :destroy
+
     enum location: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,
@@ -18,9 +20,7 @@ class Project < ApplicationRecord
     LGS:1,クロス:2,左官:3,ガラス:4,貼床:5,荷揚:6,雑工:7,電気:8,塗装:9,大工:10,シール:11,鳶:12,置床:13,防災:14,サイン:15,サッシ:16,建具:17,デザイン:18,設計:19,施工管理:20
   }
 
-  def self.search(search)
-    if search != ''
-      @projects = Project.where(['project_title LIKE ?', "%#{search}%"])
-    end
+  def favorited_by?(user)
+    project_favorites.where(user_id: user.id).exists?
   end
 end

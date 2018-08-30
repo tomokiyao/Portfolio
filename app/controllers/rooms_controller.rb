@@ -9,7 +9,14 @@ class RoomsController < ApplicationController
   	@rooms = Room.where("user_id = ? OR made_id = ?",@user, @user)
   	@room = Room.find(params[:id])
     @messages = @room.messages
+    @room.read_at = DateTime.now
+    @room.save
     @message = Message.new
+    num = @room.id.to_s
+    session[:room][num] = DateTime.now
+    # if @room.read_at < session[:room][num]
+    #   puts "aaa"
+    # end
   end
 
   def create

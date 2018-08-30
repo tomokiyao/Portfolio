@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -35,7 +36,7 @@
               <li>プロフィール
                 <ul class="child">
                   <li><%= link_to "My page", user_path(current_user.id) %></li>
-                  <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
+                  <li><%= link_to "お気に入り", users_favorite_path %></li>
                   <li><%= link_to "投稿履歴", users_history_path %></li>
                   <li><%= link_to "メッセージ", rooms_path %></li>
                   <li><%= link_to " Logout", destroy_user_session_path, method: :delete %></li>

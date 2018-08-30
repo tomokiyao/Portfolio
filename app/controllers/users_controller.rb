@@ -40,6 +40,16 @@ class UsersController < ApplicationController
     @free_traders = FreeTrader.where(user_id: @user)
   end
 
+  def favorite
+    @user = current_user
+    project = ProjectFavorite.where(user_id: @user)
+    a = project.pluck(:project_id)
+    @projects = Project.where(id: a)
+    trader = TraderFavorite.where(user_id: @user)
+    b = trader.pluck(:free_trader_id)
+    @free_traders = FreeTrader.where(id:b)
+  end
+
 
   private
 
