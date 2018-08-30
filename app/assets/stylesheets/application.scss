@@ -158,12 +158,20 @@ body {
 	color: #fff;
 	border: 0px solid #fff;
 }
-.navbar-left span {
+.header-title {
 	font-size: 40px;
 	font-weight: 600;
 	color: #EEEEEE;
 	padding-left: 30px;
 	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+#notice {
+	font-size: 18px;
+	font-weight: 600;
+	color: #EEEEEE;
+	padding-left: 30px;
+	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
 }
 .navbar-right {
 	padding-right: 3%;
@@ -283,24 +291,6 @@ li a:hover{
 	border-radius: 5px;
 	box-shadow: 0px 20px 40px rgba(9,9,9,9.9);
 }
-/*.sign-in-content {
-	position: absolute;
-	background-color: #EEEEEE;
-	width: 400px;
-	text-align: center;
-	top: 0;
-	left: 0;
-	right: 0;
-	margin-top: 100px;
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 4%;
-	padding-right: 4%;
-	z-index: 20000;
-	border: 1px solid #eee;
-	border-radius: 5px;
-	box-shadow: 0px 20px 40px rgba(9,9,9,9.9);
-}*/
 .ab{
     display: inline-block;
     padding: 0.5em 1em;

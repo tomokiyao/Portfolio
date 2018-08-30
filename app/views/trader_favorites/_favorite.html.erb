@@ -1,7 +1,7 @@
 <% if trader.favorited_by?(current_user) %>
   <% delete_trader_favorite = "trader_favorite#{trader.id}" %>
   <%= link_to free_trader_trader_favorites_path(trader),  id: "delete_trader_favorite", method: :delete, remote: true, class: delete_trader_favorite do %>
-    <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: red;"></div>
+    <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: #FF3333;"></div>
   <% end %>
 <% else %>
   <% post_trader_favorite = "trader_favorite#{trader.id}" %>

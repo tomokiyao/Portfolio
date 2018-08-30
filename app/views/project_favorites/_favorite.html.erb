@@ -1,7 +1,7 @@
 <% if project.favorited_by?(current_user) %>
   <% delete = "favorite#{project.id}" %>
     <%= link_to project_project_favorites_path(project), id: "delete",method: :delete, remote: true, class: delete do %>
-      <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: red;"></div>
+      <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: #FF3333;"></div>
     <% end %>
 <% else %>
   <% post = "favorite#{project.id}" %>

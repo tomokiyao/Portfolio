@@ -5,7 +5,7 @@
         </div>
         <div class="btn btn-genre"><%= @free_trader.trader_genre %></div>
         <div class="project-title"><strong><%= @free_trader.trader_title %></strong></div>
-        <div class="muted-info"><%= @free_trader.user.residence %></div>
+        <div class="muted-info"><%= @free_trader.user.residence %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= render 'trader_favorites/favorite', trader: @free_trader %></div>
     </div>
 </div>
 <div class="project-info-content clearfix">

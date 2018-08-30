@@ -14,7 +14,10 @@
 <% if user_signed_in? %>
   <header class= "navbar navbar-main">
           <nav class= "nav navbar-nav navbar-left">
-            <span>IC.inc</span>
+            <span class="header-title">IC.inc</span>
+              <% if notice %>
+                <span id="notice"><%= notice %></span>
+              <% end %>
           </nav>
           <nav class="nav navbar-nav navbar-right">
             <ul id="menu">

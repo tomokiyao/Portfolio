@@ -6,7 +6,7 @@
 		</div>
 		<div class="btn btn-genre"><%= @project.genre %></div>
 		<div class="project-title"><strong><%= @project.project_title %></strong></div>
-		<div class="muted-info"><%= @project.location %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @project.fee %>円</div>
+		<div class="muted-info"><%= @project.location %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @project.fee %>円&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= render 'project_favorites/favorite', project: @project %></div>
 	</div>
 </div>
 <div class="project-info-content clearfix">
