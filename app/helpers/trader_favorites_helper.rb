@@ -1,0 +1,2 @@
+module TraderFavoritesHelper
+end

@@ -70,7 +70,10 @@
 		<% @free_traders.each do |trader| %>
 		<%= link_to free_trader_path(trader.id) do %>
 			<div class="project-box">
-				<div class="btn btn-title"><%= trader.trader_genre %></div>
+                    <div class="project-box-top clearfix">
+				      <div class="btn btn-title"><%= trader.trader_genre %></div>
+                          <div class="project-box-favorite"><%= render 'trader_favorites/favorite', trader: trader %></div>
+                    </div>
 				<div class="project-box-text"><%= trader.trader_title %></div>
 					<div class="box-info clearfix">
 						<div class="box-info-left">

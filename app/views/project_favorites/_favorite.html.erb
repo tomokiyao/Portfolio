@@ -1,11 +1,11 @@
-  <% if project.favorited_by?(current_user) %>
-    <% delete = "favorite#{project.id}" %>
-      <%= link_to project_project_favorites_path(project), id: "delete",method: :delete, remote: true, class: delete do %>
-        <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: red;"></div>
+<% if project.favorited_by?(current_user) %>
+  <% delete = "favorite#{project.id}" %>
+    <%= link_to project_project_favorites_path(project), id: "delete",method: :delete, remote: true, class: delete do %>
+      <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: red;"></div>
     <% end %>
-  <% else %>
-    <% post = "favorite#{project.id}" %>
-      <%= link_to project_project_favorites_path(project), id: "post", method: :post, remote: true, class: post do %>
-        <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: gray;"></div>
+<% else %>
+  <% post = "favorite#{project.id}" %>
+    <%= link_to project_project_favorites_path(project), id: "post", method: :post, remote: true, class: post do %>
+      <div class="fa fa-heart fa-lg" aria-hidden="true" style="color: gray;"></div>
     <% end %>
-  <% end %>
+<% end %>

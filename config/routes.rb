@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions',
+  #   password: 'users/passwords',
+  #   registrations: 'users/registrations'
+  # }
+  devise_scope :user do
+    post 'users', to: 'users/registrations#create'
+  end
   root to: 'tops#index'
   get 'users/history'
+  get 'users/favorite'
   get 'tops/show'
   devise_for :users
   get 'projects/search'
@@ -15,5 +24,7 @@ resources :rooms, only: [:index, :show, :create] do
     resource :project_favorites, only: [:create, :destroy]
   end
 
-  resources :free_traders, only: [:index,:show,:new,:create,:edit,:update,:destroy]
+  resources :free_traders, only: [:index,:show,:new,:create,:edit,:update,:destroy] do
+    resource :trader_favorites, only: [:create, :destroy]
+  end
 end

@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @user_skills = @project.user.skill.split(", ")
+    unless @project.user.skill == nil
+      @user_skills = @project.user.skill.split(", ")
+    end
   end
 
   def new

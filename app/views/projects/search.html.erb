@@ -19,23 +19,34 @@
 </div>
 <div class="project-content clearfix">
 	<div class="project-main clearfix">
-		<p>仕事一覧</p>
-		<% @projects.each do |project| %>
-		<%= link_to project_path(project.id) do %>
-			<div class="project-box">
-				<div class="btn btn-title"><%= project.genre %></div>
-				<div class="project-box-text"><%= project.project_title %></div>
-					<div class="box-info clearfix">
-						<div class="box-info-left">
-							<div class="project-box-name"><%= project.user.name %></div>
-							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
-						</div>
-						<div class="box-info-right">
-							<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
-						</div>
+		<% if @projects.present? %>
+			<p>仕事一覧</p>
+			<% @projects.each do |project| %>
+				<div class="project-box">
+					<div class="project-box-top clearfix">
+						<div class="btn btn-title"><%= project.genre %></div>
+						<div class="project-box-favorite"><%= render 'project_favorites/favorite', project: project %></div>
 					</div>
+					<%= link_to project_path(project.id) do %>
+					<div class="project-box-text"><%= project.project_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="project-box-name"><%= project.user.name %></div>
+								<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %></div>
+							</div>
+							<div class="box-info-right">
+								<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+							</div>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
+		<% else %>
+			<div class="search-nil">
+				<div class="search-nill-text"><% if params[:search].present? %>「<%= params[:search] %>」</br><% end %>
+												<% if params[:genre].present? %>「<%= params[:genre] %>」<% end %>
+												<% if params[:location].present? %>「<%= params[:location] %>」<% end %><br/>該当結果なし</div>
+			</div>
 		<% end %>
 	</div>
 		<div class="project-side">
@@ -50,7 +61,7 @@
           <p>職種</p>
           <a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
           <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">塗装</li></a>
+          <a href= "/projects/search?utf8=✓&search=&genre=塗装&location="><li class="btn btn-default">塗装</li></a>
           <a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
           <a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
           <a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
