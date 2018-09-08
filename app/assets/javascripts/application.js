@@ -127,6 +127,21 @@ $(function(){
   })
 
 
+
+  $(".area1").bind('contextmenu', function(e) {
+    $(this).find('.btn').addClass('btn-danger');
+    $(this).find('.btn').text('削除');
+    $('html').click(function() {
+      if (!$(e.target).closest('btn-danger').length) {
+        $('.btn-danger').removeClass('btn-danger');
+        $('.btn').text('');
+      }
+    })
+    return false;
+
+
+  });
+
 })
 
 

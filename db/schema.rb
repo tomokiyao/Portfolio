@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_30_041428) do
+ActiveRecord::Schema.define(version: 2018_08_30_212537) do
 
   create_table "free_traders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_08_30_041428) do
     t.text "detail_location"
     t.text "top_image_id"
     t.integer "user_id"
+    t.date "first_term"
+    t.date "second_term"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -71,6 +73,14 @@ ActiveRecord::Schema.define(version: 2018_08_30_041428) do
   create_table "trader_favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "free_trader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "unreads", force: :cascade do |t|
+    t.integer "room_id"
+    t.integer "user_id"
+    t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

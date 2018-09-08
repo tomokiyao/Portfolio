@@ -4,15 +4,31 @@
 			<div class="room-side">
 				<% @rooms.each do |room| %>
 					<%= link_to room_path(room.id) do %>
-					<div class="room-user">
-						<% made = User.find(room.made_id) %>
-						<% user = User.find(room.user_id) %>
+						<div class="room-user clearfix">
+							<div class="area1" data-id="<%= room.id %>">
+							<% made = User.find(room.made_id) %>
+							<% user = User.find(room.user_id) %>
 							<% if made.id == current_user.id %>
-								<p><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= user.name %></span></p>
+								<div><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= user.name %></span><%= link_to room_path(room.id),method: :delete do %><span class="btn"></span><% end %>
+									<% @read.each do |read| %>
+										<% if room.id == read.room_id %>
+											<div class="unread"><%= read.count %>
+											</div>
+										<% end %>
+									<% end %>
+								</div>
 							<% else %>
-								<p><%= attachment_image_tag made, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= made.name %></span></p>
+								<div><%= attachment_image_tag made, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= made.name %></span><%= link_to room_path(room.id),method: :delete do %><span class="btn"></span><% end %>
+									<% @read.each do |read| %>
+										<% if room.id == read.room_id %>
+											<div class="unread"><%= read.count %>
+											</div>
+										<% end %>
+									<% end %>
+								</div>
 							<% end %>
-					</div>
+							</div>
+						</div>
 					<% end %>
 				<% end %>
 			</div>
@@ -24,3 +40,6 @@
 		</div>
 	</div>
 </div>
+
+
+

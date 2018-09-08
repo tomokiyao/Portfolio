@@ -1,4 +1,11 @@
 class Project < ApplicationRecord
+  validates :project_title, presence: true
+  validates :genre, presence: true
+  validates :location, presence: true
+  validates :first_term, presence: true
+  validates :second_term, presence: true
+
+
   attachment :project_image
 
   belongs_to :user
@@ -24,3 +31,4 @@ class Project < ApplicationRecord
     project_favorites.where(user_id: user.id).exists?
   end
 end
+

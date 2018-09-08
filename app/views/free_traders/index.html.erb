@@ -1,108 +1,117 @@
 <div class="project-serch">
-     <%= form_tag free_traders_search_path, method: :get do %>
-     <div class= "search-area">
-          <%= label_tag :キーワード %><br/>
-          <%= text_field_tag :search, params[:search], class: "search_box" %>
-     </div>
-     <div class="search-area">
-          <%= label_tag :職種 %><br/>
-          <%= select_tag 'trader_genre', options_for_select(FreeTrader.trader_genres.keys), :include_blank => true, class: "genre_box" %>
-     </div>
-     <div class="search-area">
-          <%= label_tag :対応エリア %><br/>
-          <select name="area" id="area" class="location_box">
-               <option value="">選択してください</option>
-               <option value="北海道">北海道</option>
-               <option value="青森">青森県</option>
-               <option value="岩手">岩手県</option>
-               <option value="宮城">宮城県</option>
-               <option value="秋田">秋田県</option>
-               <option value="山形">山形県</option>
-               <option value="福島">福島県</option>
-               <option value="茨城">茨城県</option>
-               <option value="栃木">栃木県</option>
-               <option value="群馬">群馬県</option>
-               <option value="埼玉">埼玉県</option>
-               <option value="千葉">千葉県</option>
-               <option value="東京">東京都</option>
-               <option value="神奈川">神奈川県</option>
-               <option value="新潟">新潟県</option>
-               <option value="富山">富山県</option>
-               <option value="石川">石川県</option>
-               <option value="福井">福井県</option>
-               <option value="山梨">山梨県</option>
-               <option value="長野">長野県</option>
-               <option value="岐阜">岐阜県</option>
-               <option value="静岡">静岡県</option>
-               <option value="愛知">愛知県</option>
-               <option value="三重">三重県</option>
-               <option value="滋賀">滋賀県</option>
-               <option value="京都">京都府</option>
-               <option value="大阪">大阪府</option>
-               <option value="兵庫">兵庫県</option>
-               <option value="奈良">奈良県</option>
-               <option value="和歌山">和歌山県</option>
-               <option value="鳥取">鳥取県</option>
-               <option value="島根">島根県</option>
-               <option value="岡山">岡山県</option>
-               <option value="広島">広島県</option>
-               <option value="山口">山口県</option>
-               <option value="徳島">徳島県</option>
-               <option value="香川">香川県</option>
-               <option value="愛媛">愛媛県</option>
-               <option value="高知">高知県</option>
-               <option value="福岡">福岡県</option>
-               <option value="佐賀">佐賀県</option>
-               <option value="長崎">長崎県</option>
-               <option value="熊本">熊本県</option>
-               <option value="大分">大分県</option>
-               <option value="宮崎">宮崎県</option>
-               <option value="鹿児島">鹿児島県</option>
-               <option value="沖縄">沖縄県</option>
-          </select>
-     </div>
-	<%= submit_tag "検索", class: "btn btn-search" %>
-	<% end %>
+  <%= form_tag free_traders_search_path, method: :get do %>
+    <div class= "search-area">
+      <%= label_tag :キーワード %><br/>
+      <%= text_field_tag :search, params[:search], class: "search_box" %>
+    </div>
+    <div class="search-area">
+      <%= label_tag :職種 %><br/>
+      <%= select_tag 'trader_genre', options_for_select(FreeTrader.trader_genres.keys), :include_blank => true, class: "genre_box" %>
+    </div>
+    <div class="search-area">
+      <%= label_tag :対応エリア %><br/>
+      <select name="area" id="area" class="location_box">
+        <option value="">選択してください</option>
+        <option value="北海道">北海道</option>
+        <option value="青森">青森県</option>
+        <option value="岩手">岩手県</option>
+        <option value="宮城">宮城県</option>
+        <option value="秋田">秋田県</option>
+        <option value="山形">山形県</option>
+        <option value="福島">福島県</option>
+        <option value="茨城">茨城県</option>
+        <option value="栃木">栃木県</option>
+        <option value="群馬">群馬県</option>
+        <option value="埼玉">埼玉県</option>
+        <option value="千葉">千葉県</option>
+        <option value="東京">東京都</option>
+        <option value="神奈川">神奈川県</option>
+        <option value="新潟">新潟県</option>
+        <option value="富山">富山県</option>
+        <option value="石川">石川県</option>
+        <option value="福井">福井県</option>
+        <option value="山梨">山梨県</option>
+        <option value="長野">長野県</option>
+        <option value="岐阜">岐阜県</option>
+        <option value="静岡">静岡県</option>
+        <option value="愛知">愛知県</option>
+        <option value="三重">三重県</option>
+        <option value="滋賀">滋賀県</option>
+        <option value="京都">京都府</option>
+        <option value="大阪">大阪府</option>
+        <option value="兵庫">兵庫県</option>
+        <option value="奈良">奈良県</option>
+        <option value="和歌山">和歌山県</option>
+        <option value="鳥取">鳥取県</option>
+        <option value="島根">島根県</option>
+        <option value="岡山">岡山県</option>
+        <option value="広島">広島県</option>
+        <option value="山口">山口県</option>
+        <option value="徳島">徳島県</option>
+        <option value="香川">香川県</option>
+        <option value="愛媛">愛媛県</option>
+        <option value="高知">高知県</option>
+        <option value="福岡">福岡県</option>
+        <option value="佐賀">佐賀県</option>
+        <option value="長崎">長崎県</option>
+        <option value="熊本">熊本県</option>
+        <option value="大分">大分県</option>
+        <option value="宮崎">宮崎県</option>
+        <option value="鹿児島">鹿児島県</option>
+        <option value="沖縄">沖縄県</option>
+      </select>
+    </div>
+    <%= submit_tag "検索", class: "btn btn-search" %>
+  <% end %>
 </div>
 <div class="project-content clearfix">
-	<div class="project-main clearfix">
-		<p>空き業者一覧</p>
-		<% @free_traders.each do |trader| %>
-		<%= link_to free_trader_path(trader.id) do %>
-			<div class="project-box">
-                    <div class="project-box-top clearfix">
-				      <div class="btn btn-title"><%= trader.trader_genre %></div>
-                          <div class="project-box-favorite"><%= render 'trader_favorites/favorite', trader: trader %></div>
-                    </div>
-				<div class="project-box-text"><%= trader.trader_title %></div>
-					<div class="box-info clearfix">
-						<div class="box-info-left">
-							<div class="project-box-name"><%= trader.user.name %></div>
-							<div class="project-box-info"><%= trader.user.residence %></div>
-						</div>
-						<div class="trader-info-right">
-							<div class="project-box-image"><%= attachment_image_tag trader.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
-						</div>
-					</div>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
-	<div class="project-side">
-          <div class="side-search-title">おすすめ検索ワード</div>
-          <p>対応エリア</p>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=東京"><li class="btn btn-default">東京</li></a>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=神奈川"><li class="btn btn-default">神奈川</li></a>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=大阪"><li class="btn btn-default">大阪</li></a>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=埼玉"><li class="btn btn-default">埼玉</li></a>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=福岡"><li class="btn btn-default">福岡</li></a>
-          <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=北海道"><li class="btn btn-default">北海道</li></a>
-          <p>職種</p>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=大工&area=&"><li class="btn btn-default">大工</li></a>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=左官&area=&"><li class="btn btn-default">左官</li></a>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=塗装&area=&"><li class="btn btn-default">塗装</li></a>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=施工管理&area=&"><li class="btn btn-default">施工管理</li></a>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=設計&area=&"><li class="btn btn-default">設計</li></a>
-          <a href= "/free_traders/search?utf8=✓&search=&trader_genre=デザイン&area=&"><li class="btn btn-default">デザイナー</li></a>
-     </div>
+  <div class="project-main clearfix">
+    <p>空き業者一覧</p>
+    <% @free_traders.each do |trader| %>
+      <div class="project-box">
+        <div class="project-box-top clearfix">
+          <div class="btn btn-title"><%= trader.trader_genre %></div>
+            <% a = trader.first_term %>
+            <% b = (a - Date.today).to_i %>
+            <% if b <= 10 %>
+            <div class="btn btn-deadline"> あと<%= b %>日</div>
+            <% else %>
+            <div class="btn btn-title"> あと<%= b %>日</div>
+            <% end %>
+            <% if user_signed_in? %>
+              <div class="project-box-favorite"><%= render 'trader_favorites/favorite', trader: trader %></div>
+            <% end %>
+        </div>
+        <%= link_to free_trader_path(trader.id) do %>
+          <div class="project-box-text"><%= trader.trader_title %></div>
+          <div class="box-info clearfix">
+            <div class="box-info-left">
+              <div class="project-box-name"><%= trader.user.name %></div>
+              <div class="project-box-info"><%= trader.user.residence %></div>
+            </div>
+            <div class="trader-info-right">
+              <div class="project-box-image"><%= attachment_image_tag trader.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="project-side">
+    <div class="side-search-title">おすすめ検索ワード</div>
+      <p>対応エリア</p>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=東京"><li class="btn btn-default">東京</li></a>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=神奈川"><li class="btn btn-default">神奈川</li></a>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=大阪"><li class="btn btn-default">大阪</li></a>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=埼玉"><li class="btn btn-default">埼玉</li></a>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=福岡"><li class="btn btn-default">福岡</li></a>
+      <a href="/free_traders/search?utf8=✓&search=&trader_genre=&area=北海道"><li class="btn btn-default">北海道</li></a>
+      <p>職種</p>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=大工&area=&"><li class="btn btn-default">大工</li></a>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=左官&area=&"><li class="btn btn-default">左官</li></a>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=塗装&area=&"><li class="btn btn-default">塗装</li></a>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=施工管理&area=&"><li class="btn btn-default">施工管理</li></a>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=設計&area=&"><li class="btn btn-default">設計</li></a>
+      <a href= "/free_traders/search?utf8=✓&search=&trader_genre=デザイン&area=&"><li class="btn btn-default">デザイナー</li></a>
+    </div>
 </div>

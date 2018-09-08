@@ -10,9 +10,19 @@
         <div class="user-profile-residence">
           <%= @user.residence %>
         </div>
-        <div class="user-profile-edit">
-          <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
-        </div>
+        <% if user_signed_in? %>
+          <% if @user == current_user %>
+            <div class="user-profile-edit">
+              <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-edit" %>
+            </div>
+          <% else %>
+            <%= link_to rooms_path(id: @user.id),method: :post do %>
+              <div class="user-profile-edit">
+                <p class="btn btn-edit">メッセージを送る</p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
       <div class="project-info-content clearfix">
         <div class="project-info-main">
@@ -73,7 +83,7 @@
           </div>
           <div class="side-skill">
             <div class="side-company-skill"">対応工事</div>
-            <% unless @user_slills == nil %>
+            <% unless @user.skill == nil %>
                 <% @user_skills.each do |skill| %>
                   <li class="btn btn-side-skill"><%= skill %></li>
                 <% end %>

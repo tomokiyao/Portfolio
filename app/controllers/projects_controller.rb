@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.all.page(params[:page]).per(3)
+    expired = Project.where("first_term < ?", Date.today)
+    expired.each do |expired|
+      expired.destroy
+    end
   end
 
   def show
@@ -17,12 +21,18 @@ class ProjectsController < ApplicationController
   def create
     project = Project.new(project_params)
     project.user_id = current_user.id
-    project.save
-    redirect_to project_path(project.id)
+    if project.save
+      redirect_to project_path(project.id)
+    else
+      render 'new'
+    end
   end
 
   def edit
     @project = Project.find(params[:id])
+    if @project.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -38,13 +48,16 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    expired = Project.where("first_term < ?", Date.today)
+    expired.each do |expired|
+      expired.destroy
+    end
     @projects = Project.where("project_title like '%" + params[:search] +
                               "%' and genre like '%" + Project.genres[params[:genre]].to_s + "%' and location like '%" + Project.locations[params[:location]].to_s + "%'")
-
   end
 
   private
     def project_params
-      params.require(:project).permit(:genre,:location,:fee,:time,:project_content,:project_title,:required_skill,:welcome_skill,:project_image_id,:detail_location)
+      params.require(:project).permit(:genre,:location,:fee,:time,:project_content,:project_title,:required_skill,:welcome_skill,:project_image_id,:detail_location,:first_term, :second_term)
     end
 end

@@ -20,11 +20,18 @@
 <div class="project-content clearfix">
 	<div class="project-main clearfix">
 		<% if @projects.present? %>
-			<p>仕事一覧</p>
+			<p>案件情報検索結果</p>
 			<% @projects.each do |project| %>
 				<div class="project-box">
 					<div class="project-box-top clearfix">
 						<div class="btn btn-title"><%= project.genre %></div>
+						<% a = project.first_term %>
+						<% b = (a - Date.today).to_i %>
+						<% if b <= 10 %>
+							<div class="btn btn-deadline"> あと<%= b %>日</div>
+						<% else %>
+							<div class="btn btn-title"> あと<%= b %>日</div>
+						<% end %>
 						<div class="project-box-favorite"><%= render 'project_favorites/favorite', project: project %></div>
 					</div>
 					<%= link_to project_path(project.id) do %>
@@ -44,26 +51,27 @@
 		<% else %>
 			<div class="search-nil">
 				<div class="search-nill-text"><% if params[:search].present? %>「<%= params[:search] %>」</br><% end %>
-												<% if params[:genre].present? %>「<%= params[:genre] %>」<% end %>
-												<% if params[:location].present? %>「<%= params[:location] %>」<% end %><br/>該当結果なし</div>
+																			<% if params[:genre].present? %>「<%= params[:genre] %>」<% end %>
+																			<% if params[:location].present? %>「<%= params[:location] %>」<% end %><br/>該当結果なし
+				</div>
 			</div>
 		<% end %>
 	</div>
 		<div class="project-side">
-          <div class="side-search-title">おすすめ検索ワード</div>
-          <p>現場エリア</p>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=東京都"><li class="btn btn-default">東京</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=神奈川県"><li class="btn btn-default">神奈川</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=大阪府"><li class="btn btn-default">大阪</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=埼玉県"><li class="btn btn-default">埼玉</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=福岡県"><li class="btn btn-default">福岡</li></a>
-          <a href="/projects/search?utf8=✓&search=&genre=&location=北海道"><li class="btn btn-default">北海道</li></a>
-          <p>職種</p>
-          <a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=塗装&location="><li class="btn btn-default">塗装</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
-          <a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
-     </div>
+			<div class="side-search-title">おすすめ検索ワード</div>
+			<p>現場エリア</p>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=東京都"><li class="btn btn-default">東京</li></a>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=神奈川県"><li class="btn btn-default">神奈川</li></a>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=大阪府"><li class="btn btn-default">大阪</li></a>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=埼玉県"><li class="btn btn-default">埼玉</li></a>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=福岡県"><li class="btn btn-default">福岡</li></a>
+			<a href="/projects/search?utf8=✓&search=&genre=&location=北海道"><li class="btn btn-default">北海道</li></a>
+			<p>職種</p>
+			<a href= "/projects/search?utf8=✓&search=&genre=大工&location="><li class="btn btn-default">大工</li></a>
+			<a href= "/projects/search?utf8=✓&search=&genre=左官&location="><li class="btn btn-default">左官</li></a>
+			<a href= "/projects/search?utf8=✓&search=&genre=塗装&location="><li class="btn btn-default">塗装</li></a>
+			<a href= "/projects/search?utf8=✓&search=&genre=施工管理&location="><li class="btn btn-default">施工管理</li></a>
+			<a href= "/projects/search?utf8=✓&search=&genre=設計&location="><li class="btn btn-default">設計</li></a>
+			<a href= "/projects/search?utf8=✓&search=&genre=デザイン&location="><li class="btn btn-default">デザイナー</li></a>
+		</div>
 </div>
