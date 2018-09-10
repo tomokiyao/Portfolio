@@ -1,6 +1,10 @@
 class FreeTradersController < ApplicationController
   def index
-    @free_traders = FreeTrader.all
+    @free_traders = FreeTrader.all.page(params[:page]).per(10)
+    expired = FreeTrader.where("first_term < ?", Date.today)
+    expired.each do |expired|
+    expired.destroy
+    end
   end
 
   def show
@@ -15,6 +19,9 @@ class FreeTradersController < ApplicationController
 
   def edit
     @free_trader = FreeTrader.find(params[:id])
+    if @free_trader.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -38,17 +45,23 @@ class FreeTradersController < ApplicationController
   def create
     unless area_params[:area] == nil
       area = area_params[:area].join(",")
-      free_trader = FreeTrader.new(trader_title:free_trader_params[:trader_title], wanted_detail:free_trader_params[:wanted_detail], trader_genre:free_trader_params[:trader_genre],
+      @free_trader = FreeTrader.new(trader_title:free_trader_params[:trader_title], wanted_detail:free_trader_params[:wanted_detail], trader_genre:free_trader_params[:trader_genre],
                                    first_number_of_people:free_trader_params[:first_number_of_people], second_number_of_people:free_trader_params[:second_number_of_people],
                                    first_term:free_trader_params[:first_term], second_term:free_trader_params[:second_term], area:area)
-      free_trader.user_id = current_user.id
-      free_trader.save
-      redirect_to free_trader_path(free_trader.id)
+      @free_trader.user_id = current_user.id
+      if @free_trader.save
+        redirect_to free_trader_path(free_trader.id)
+      else
+        render 'new'
+      end
     else
-      free_trader = FreeTrader.new(free_trader_params)
-      free_trader.user_id = current_user.id
-      free_trader.save
-      redirect_to free_trader_path(free_trader.id)
+      @free_trader = FreeTrader.new(free_trader_params)
+      @free_trader.user_id = current_user.id
+      if @free_trader.save
+        redirect_to free_trader_path(free_trader.id)
+      else
+        render 'new'
+      end
     end
   end
 
@@ -59,6 +72,10 @@ class FreeTradersController < ApplicationController
   end
 
   def search
+    expired = FreeTrader.where("first_term < ?", Date.today)
+    expired.each do |expired|
+    expired.destroy
+  end
     @free_traders = FreeTrader.where("trader_title like '%" + params[:search] +
                                      "%' and trader_genre like '%" + FreeTrader.trader_genres[params[:trader_genre]].to_s +
                                      "%' and area like '%" + params[:area] + "%'")

@@ -20,29 +20,40 @@
 </div>
 <div class="project-content clearfix">
 	<div class="project-main">
-		<p>仕事一覧</p>
+		<p>案件一覧</p>
 		<% @projects.each do |project| %>
 				<div class="project-box">
 					<div class="project-box-top clearfix">
 						<div class="btn btn-title"><%= project.genre %></div>
-						<div class="project-box-favorite"><%= render 'project_favorites/favorite', project: project %></div>
+						<% a = project.first_term %>
+						<% b = (a - Date.today).to_i %>
+						<% if b <= 10 %>
+						<div class="btn btn-deadline"> あと<%= b %>日</div>
+						<% else %>
+						<div class="btn btn-title"> あと<%= b %>日</div>
+						<% end %>
+						<% if user_signed_in? %>
+							<div class="project-box-favorite"><%= render 'project_favorites/favorite', project: project %>
+							</div>
+						<% end %>
 					</div>
 					<%= link_to project_path(project.id) do %>
-					<div class="project-box-text"><%= project.project_title %></div>
-					<div class="box-info clearfix">
-						<div class="box-info-left">
-							<div class="project-box-name"><%= project.user.name %>
+						<div class="project-box-text"><%= project.project_title %></div>
+						<div class="box-info clearfix">
+							<div class="box-info-left">
+								<div class="project-box-name"><%= project.user.name %>
+								</div>
+								<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %>
+								</div>
 							</div>
-							<div class="project-box-info">¥<%= project.fee %>&nbsp;&nbsp;&nbsp;&nbsp;<%= project.location %>
+							<div class="box-info-right">
+								<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
 							</div>
 						</div>
-						<div class="box-info-right">
-							<div class="project-box-image"><%= attachment_image_tag project.user, :profile_image, :fill, 120, 120, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "56x56" %></div>
-						</div>
-					</div>
 				<% end %>
 			</div>
 		<% end %>
+		<%= paginate @projects %>
 	</div>
 	<div class="project-side">
 		<div class="side-search-title">おすすめ検索ワード</div>

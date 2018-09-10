@@ -96,7 +96,7 @@ $(function(){
   })
 
   $(document).on("ajax:success", "#post", function(e) {
-    $('.favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'red');
+    $('.favorite' + e.detail[0]).find($(".fa-lg")).css('color', '#FF3333');
     $('.favorite' + e.detail[0]).attr("data-method", "delete");
     $('.favorite' + e.detail[0]).attr("id", "delete");
   })
@@ -108,7 +108,7 @@ $(function(){
   })
 
   $(document).on("ajax:success", "#post_trader_favorite", function(e){
-    $('.trader_favorite' + e.detail[0]).find($(".fa-lg")).css('color', 'red');
+    $('.trader_favorite' + e.detail[0]).find($(".fa-lg")).css('color', '#FF3333');
     $('.trader_favorite' + e.detail[0]).attr("id", "delete_trader_favorite");
     $('.trader_favorite' + e.detail[0]).attr("data-method", "delete");
   })
@@ -126,6 +126,21 @@ $(function(){
     $(".message3").scrollTop($(".message3")[0].scrollHeight);
   })
 
+
+
+  $(".area1").bind('contextmenu', function(e) {
+    $(this).find('.btn').addClass('btn-danger');
+    $(this).find('.btn').text('削除');
+    $('html').click(function() {
+      if (!$(e.target).closest('btn-danger').length) {
+        $('.btn-danger').removeClass('btn-danger');
+        $('.btn').text('');
+      }
+    })
+    return false;
+
+
+  });
 
 })
 

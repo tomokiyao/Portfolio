@@ -23,6 +23,10 @@
 								<%= f.select :genre, Project.genres.keys, {prompt: '選択してください'}, class: 'project-edit-location btn btn-edit-residence' %>
 							</div>
 							<div class="field">
+								<%= f.label :工期 %><br />
+								<%= f.date_field :first_term,  class: "project-edit-date" %><strong>〜</strong><%= f.date_field :second_term,  class: "project-edit-date" %>
+							</div>
+							<div class="field">
 								<%= f.label :業務時間 %><br />
 								<%= f.text_field :time,  class: "project-edit-fee" %>
 							</div>
