@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all.page(params[:page]).per(3)
+    @projects = Project.all.page(params[:page]).per(10)
     expired = Project.where("first_term < ?", Date.today)
     expired.each do |expired|
       expired.destroy
@@ -19,10 +19,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.new(project_params)
-    project.user_id = current_user.id
-    if project.save
-      redirect_to project_path(project.id)
+    @project = Project.new(project_params)
+    @project.user_id = current_user.id
+    if @project.save
+      redirect_to project_path(@project.id)
     else
       render 'new'
     end

@@ -1,5 +1,13 @@
 class FreeTrader < ApplicationRecord
 
+  validates :trader_title, presence: true
+  validates :trader_genre, presence: true
+  validates :area, presence: true
+  validates :first_term, presence: true
+  validates :second_term, presence: true
+
+
+
 	belongs_to :user
 
 	has_many :trader_favorites, dependent: :destroy

@@ -334,3 +334,17 @@ li a:hover{
 	padding:0px 7px;
 
 }
+.page{
+	text-align: center;
+}
+.pagination li span {
+	background-color: #fff;
+	width: 40px!important;
+	height: 40px!important;
+	padding: 9px 12px;
+	color: #767676;
+	font-weight: 600;
+}
+.pagination li span a {
+	color: #767676;
+}
