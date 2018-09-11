@@ -35,6 +35,12 @@ class RoomsController < ApplicationController
 
 def destroy
   room = Room.find(params[:id])
+# 変更ここから
+  unread = Unread.where(room_id: room.id)
+  unread.each do |unread|
+    unread.destroy
+  end
+# ここまで
   room.destroy
   redirect_to rooms_path
 end
