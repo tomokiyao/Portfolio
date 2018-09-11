@@ -9,7 +9,12 @@
 								<% made = User.find(room.made_id) %>
 								<% user = User.find(room.user_id) %>
 								<% if made.id == current_user.id %>
-									<div><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= user.name %></span><%= link_to room_path(room.id),method: :delete do %><span class="btn"></span><% end %>
+									<div>
+										<%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %>
+										<span class="room-user-name"><%= user.name %></span>
+										<%= link_to room_path(room.id),method: :delete, data: {confirm: "履歴が全て無くなりますがこのトークを削除してよろしいですか？"} do %>
+											<span class="underground"></span>
+										<% end %>
 										<% @read.each do |read| %>
 											<% if room.id == read.room_id %>
 												<div class="unread"><%= read.count %>
@@ -18,7 +23,12 @@
 										<% end %>
 									</div>
 								<% else %>
-									<div><%= attachment_image_tag made, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %><span class="room-user-name"><%= made.name %></span><%= link_to room_path(room.id),method: :delete do %><span class="btn"></span><% end %>
+									<div>
+										<%= attachment_image_tag made, :profile_image, :fill, 50, 50, format: 'jpeg',class: "img-circle", fallback: "user1.png", :size => "50x50" %>
+										<span class="room-user-name"><%= made.name %></span>
+										<%= link_to room_path(room.id),method: :delete, data: {confirm: "履歴が全て無くなりますがこのトークを削除してよろしいですか？"} do %>
+											<span class="underground"></span>
+										<% end %>
 										<% @read.each do |read| %>
 											<% if room.id == read.room_id %>
 												<div class="unread"><%= read.count %>
