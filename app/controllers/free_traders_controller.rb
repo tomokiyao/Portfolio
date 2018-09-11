@@ -50,7 +50,7 @@ class FreeTradersController < ApplicationController
                                    first_term:free_trader_params[:first_term], second_term:free_trader_params[:second_term], area:area)
       @free_trader.user_id = current_user.id
       if @free_trader.save
-        redirect_to free_trader_path(free_trader.id)
+        redirect_to free_trader_path(@free_trader.id)
       else
         render 'new'
       end
@@ -58,7 +58,7 @@ class FreeTradersController < ApplicationController
       @free_trader = FreeTrader.new(free_trader_params)
       @free_trader.user_id = current_user.id
       if @free_trader.save
-        redirect_to free_trader_path(free_trader.id)
+        redirect_to free_trader_path(@free_trader.id)
       else
         render 'new'
       end
